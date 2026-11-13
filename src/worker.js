@@ -959,7 +959,7 @@ const APP_HTML = `<!doctype html>
       <h1>Portal Comercial</h1>
       <p>Introduza o seu c\u00C3\u00B3digo pessoal para aceder ao sistema integrado.</p>
       <form id="jbp-login-form">
-        <input type="password" id="jbp-login-code" class="jbp-login-input" placeholder="Ex: verajb26" autofocus required>
+        <input type="password" id="jbp-login-code" class="jbp-login-input" placeholder="Introduza o seu código" autofocus required>
         <button type="submit" id="jbp-btn-login" class="jbp-login-btn">Entrar no Portal</button>
         <div class="jbp-login-erro" id="jbp-login-erro"></div>
       </form>
@@ -1369,7 +1369,7 @@ const APP_HTML = `<!doctype html>
             <span class="jbm-card-num" id="modal-num" style="font-size:16px;font-weight:800;padding:5px 14px;background:#f59e0b;color:#0f172a;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.15);letter-spacing:.5px;">#0000</span>
             <button type="button" class="jbm-btn-close" id="modal-btn-close">\u00E2\u0153\u2022</button>
           </div>
-          <h2 id="modal-nome" style="margin:6px 0 2px;font-size:clamp(22px, 4vw, 30px);font-weight:800;color:#ffffff;line-height:1.2;word-break:break-word;">Nome da Loja</h2>
+          <h2 id="modal-nome" style="margin:4px 0 0;font-size:20px;font-weight:800;color:#ffffff;line-height:1.25;word-break:break-word;">Nome da Loja</h2>
           <div style="font-size:13px;color:#cbd5e1;display:flex;align-items:center;gap:6px;" id="modal-sub">
             \u00F0\u0178\u201C\u008D Localidade \u00C2\u00B7 Morada
           </div>
