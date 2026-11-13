@@ -1,9 +1,10 @@
-/**
- * Entrada da Área Comercial · JB Comércio Global
- *
- * Cloudflare Worker com endpoints seguros para o Google Apps Script.
- * As credenciais e URL do backend ficam protegidos em Secrets da Cloudflare.
+﻿/**
+ * JB Comércio Global · Portal Comercial Autónomo
+ * Cloudflare Worker Completo (com HTML embutido e endpoints seguros)
  */
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRRNRjuLsVJCzxga-CXPH_tMfBDLJubenFHDydu9ySTf4wf_B42jtzn7YJXYCFVbwx/exec";
+
 function reply(body, status = 200) {
   return Response.json(body, {
     status,
@@ -14,18 +15,19 @@ function reply(body, status = 200) {
   });
 }
 
-const DEFAULT_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRRNRjuLsVJCzxga-CXPH_tMfBDLJubenFHDydu9ySTf4wf_B42jtzn7YJXYCFVbwx/exec";
+const HTML_APP = $htmlEscaped;
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const scriptUrl = env.APPS_SCRIPT_URL || DEFAULT_APPS_SCRIPT_URL;
+    const scriptUrl = (env && env.APPS_SCRIPT_URL) ? env.APPS_SCRIPT_URL : APPS_SCRIPT_URL;
 
+    // 1. Healthcheck
     if (url.pathname === "/api/health") {
       return reply({ ok: true, service: "jb-comercial-app", version: "2.0.0" });
     }
 
-    // 1. LOGIN & AUTENTICAÇÃO
+    // 2. Login e Autenticação com o Google Apps Script
     if (url.pathname === "/api/login" && request.method === "POST") {
       let codigo = "";
       try { codigo = String((await request.json()).codigo || "").trim(); } catch (_) {}
@@ -53,12 +55,11 @@ export default {
       });
     }
 
-    // 2. REGISTOS DE ATIVIDADE (Rotas, Visitas, Abastecimentos)
+    // 3. Registo de Atividades (Visitas, Rotas, Abastecimentos)
     if (url.pathname === "/api/registar" && request.method === "POST") {
       try {
         const formData = await request.formData();
         const bodyParams = new URLSearchParams();
-
         for (const [key, value] of formData.entries()) {
           bodyParams.append(key, value);
         }
@@ -75,7 +76,7 @@ export default {
       }
     }
 
-    // 3. ATUALIZAR CLIENTE (Ficha / Contactos / Marcas)
+    // 4. Salvar Edição de Cliente / Marcas
     if (url.pathname === "/api/salvar_cliente" && request.method === "POST") {
       try {
         const dados = await request.json();
@@ -101,7 +102,12 @@ export default {
       }
     }
 
-    // Entrega de ficheiros estáticos (HTML, JS, CSS, Leaflet)
-    return await env.ASSETS.fetch(request);
+    // 5. Página Inicial / SPA (Entrega a aplicação completa de forma 100% autónoma)
+    return new Response(HTML_APP, {
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        "Cache-Control": "public, max-age=60"
+      }
+    });
   }
 };
