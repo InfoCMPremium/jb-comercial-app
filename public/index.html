@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>JB Comércio Global · Portal Comercial</title>
   
-  <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Leaflet CSS & JS para Mapa -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -34,7 +32,6 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
     }
-    
     .jbp-hide { display: none !important; }
 
     /* Ecrã de Login */
@@ -49,15 +46,15 @@
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 30px 24px;
+      padding: 32px 26px;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+      box-shadow: 0 4px 14px rgba(0,0,0,.08);
       text-align: center;
     }
     .jbp-login-logo {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       background: var(--primary);
       color: #fff;
       font-size: 22px;
@@ -115,7 +112,7 @@
       font-weight: 600;
     }
 
-    /* Aplicação Principal (Layout SPA) */
+    /* Layout da Aplicação Autenticada */
     .jbp-app {
       display: flex;
       flex-direction: column;
@@ -123,10 +120,8 @@
       max-width: 1750px;
       margin: 0 auto;
       padding: 8px 12px 20px;
-      gap: 10px;
+      gap: 12px;
     }
-
-    /* Topo / Navbar */
     .jbp-top {
       background: #fff;
       border: 1px solid var(--border);
@@ -139,11 +134,7 @@
       gap: 10px;
       box-shadow: 0 1px 3px rgba(0,0,0,.04);
     }
-    .jbp-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .jbp-brand { display: flex; align-items: center; gap: 10px; }
     .jbp-logo-sm {
       width: 38px;
       height: 38px;
@@ -158,25 +149,10 @@
       box-shadow: 0 2px 4px rgba(26,61,109,.2);
       flex-shrink: 0;
     }
-    .jbp-brand strong {
-      font-size: 15px;
-      color: var(--primary);
-      display: block;
-      line-height: 1.2;
-    }
-    .jbp-brand small {
-      font-size: 11px;
-      color: var(--muted);
-      font-weight: 500;
-    }
+    .jbp-brand strong { font-size: 15px; color: var(--primary); display: block; line-height: 1.2; }
+    .jbp-brand small { font-size: 11px; color: var(--muted); font-weight: 500; }
 
-    /* Abas de Navegação Superiores */
-    .jbp-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
+    .jbp-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     .jbp-nav-btn {
       padding: 8px 14px;
       border: 1px solid var(--border);
@@ -189,7 +165,7 @@
       transition: all .15s;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       font-family: inherit;
     }
     .jbp-nav-btn:hover { background: #f8fafc; border-color: #94a3b8; }
@@ -223,13 +199,10 @@
       font-family: inherit;
     }
 
-    /* Painéis de Conteúdo */
     .jbp-panel { display: none; }
-    .jbp-panel.active { display: flex; flex-direction: column; gap: 10px; }
+    .jbp-panel.active { display: flex; flex-direction: column; gap: 12px; }
 
-    /* ========================================= */
-    /* MÓDULO: MAPA & CRM                       */
-    /* ========================================= */
+    /* Estilos do Mapa & CRM */
     .jbm-bar {
       background: #fff;
       border: 1px solid var(--border);
@@ -241,10 +214,7 @@
       flex-wrap: wrap;
       box-shadow: 0 1px 3px rgba(0,0,0,.04);
     }
-    .jbm-search {
-      flex: 1;
-      min-width: 220px;
-    }
+    .jbm-search { flex: 1; min-width: 220px; }
     .jbm-search input {
       width: 100%;
       padding: 8px 12px;
@@ -256,12 +226,7 @@
       font-family: inherit;
     }
     .jbm-search input:focus { border-color: var(--primary); background: #fff; }
-    .jbm-filters {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+    .jbm-filters { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
     .jbm-btn-filter {
       padding: 7px 11px;
       font-size: 12px;
@@ -350,13 +315,7 @@
     }
     .jbm-btn-rota-top:hover { background: #172554; }
 
-    /* Layout Mapa + Sidebar */
-    .jbm-main {
-      display: flex;
-      gap: 12px;
-      height: 720px;
-      min-height: 550px;
-    }
+    .jbm-main { display: flex; gap: 12px; height: 720px; min-height: 550px; }
     #jbm-map {
       flex: 1;
       height: 100%;
@@ -385,11 +344,7 @@
       flex-direction: column;
       gap: 6px;
     }
-    .jbm-sidebar-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .jbm-sidebar-header-row { display: flex; justify-content: space-between; align-items: center; }
     .jbm-sort-bar {
       display: flex;
       align-items: center;
@@ -408,18 +363,9 @@
       font-weight: 600;
       font-family: inherit;
     }
-    .jbm-sort-btn.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
-    .jbm-client-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: 10px;
-    }
+    .jbm-sort-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .jbm-client-list { flex: 1; overflow-y: auto; padding: 10px; }
 
-    /* Cards Clientes */
     .jbm-card {
       background: #fff;
       border: 1px solid #e2e8f0;
@@ -435,11 +381,7 @@
     .jbm-card.cor-laranja { border-left-color: #ea580c; }
     .jbm-card.cor-amarelo { border-left-color: #eab308; }
     .jbm-card.cor-lilas { border-left-color: #9333ea; }
-    .jbm-card-top {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 4px;
-    }
+    .jbm-card-top { display: flex; justify-content: space-between; margin-bottom: 4px; }
     .jbm-card-nome { font-size: 13px; font-weight: 700; color: #1e293b; }
     .jbm-card-num { font-size: 11px; font-weight: 700; color: var(--muted); background: #f1f5f9; padding: 2px 6px; border-radius: 4px; }
     .jbm-card-morada { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
@@ -456,7 +398,6 @@
     .jbm-tag-status.em-atraso { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
     .jbm-tag-status.potencial { background: #f3e8ff; color: #7e22ce; border: 1px solid #e9d5ff; }
 
-    /* Pins Leaflet */
     .jbm-marker-pin {
       width: 24px; height: 24px; border-radius: 50% 50% 50% 0; position: absolute;
       transform: rotate(-45deg); left: 50%; top: 50%; margin: -15px 0 0 -15px;
@@ -511,48 +452,163 @@
     .jbm-chip.checked { background: var(--primary); color: #fff; font-weight: 600; }
     .jbm-chip input { display: none; }
 
-    /* ========================================= */
-    /* MÓDULO: REGISTOS                         */
-    /* ========================================= */
-    .jbr-wrap {
-      background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 20px; max-width: 800px; margin: 0 auto; width: 100%;
+    /* Estilos de Registos Duda */
+    .jb-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #1e293b;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      width: 100%;
     }
-    .jbr-subtabs { display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
-    .jbr-subtab {
-      padding: 8px 14px; border: 1px solid var(--border); background: #fff; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; font-family: inherit;
-    }
-    .jbr-subtab.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-    .jbr-form { display: none; flex-direction: column; gap: 10px; }
-    .jbr-form.active { display: flex; }
-    .jbr-msg { padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 600; margin-top: 10px; display: none; }
-    .jbr-msg.ok { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; display: block; }
-    .jbr-msg.err { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; display: block; }
+    .jb-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #e2e8f0; }
+    .jb-logo-badge { width: 42px; height: 42px; background: #1a3d6d; color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; letter-spacing: 1px; box-shadow: 0 2px 4px rgba(26,61,109,.25); }
+    .jb-header-text { display: flex; flex-direction: column; }
+    .jb-header-text strong { font-size: 16px; color: #1a3d6d; letter-spacing: .3px; }
+    .jb-header-text span { font-size: 12px; color: #64748b; font-weight: 500; }
 
-    /* ========================================= */
-    /* MÓDULO: HISTÓRICO                        */
-    /* ========================================= */
+    .jb-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .jb-tab { flex: 1; min-width: 140px; padding: 12px 14px; border: 1px solid #cbd5e1; background: #fff; color: #475569; font-weight: 600; font-size: 14px; cursor: pointer; border-radius: 8px; transition: all .15s; font-family: inherit; text-align: center; }
+    .jb-tab:hover { background: #f1f5f9; color: #1a3d6d; }
+    .jb-tab.active { background: #1a3d6d; color: #fff; border-color: #1a3d6d; box-shadow: 0 2px 4px rgba(26,61,109,.2); }
+
+    .jb-form { display: none; flex-direction: column; gap: 16px; background: #fff; padding: 22px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    .jb-form.active { display: flex; }
+    .jb-form label { display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600; color: #334155; }
+    .jb-form input, .jb-form select, .jb-form textarea { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; font-family: inherit; color: #1e293b; background: #fff; transition: border-color .15s, box-shadow .15s; }
+    .jb-form input:focus, .jb-form select:focus, .jb-form textarea:focus { outline: 0; border-color: #1a3d6d; box-shadow: 0 0 0 3px rgba(26,61,109,.12); }
+    .jb-row { display: flex; gap: 12px; }
+    .jb-row label { flex: 1; }
+
+    .jb-hora-wrap { display: flex; gap: 6px; }
+    .jb-hora-wrap input { flex: 1; }
+    .jb-btn-agora { padding: 0 12px; background: #e8eef6; color: #1a3d6d; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+    .jb-btn-agora:hover { background: #1a3d6d; color: #fff; border-color: #1a3d6d; }
+
+    .jb-marcas-wrap { display: flex; flex-direction: column; gap: 8px; background: #f8fafc; padding: 14px; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .jb-marcas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .jb-chip { display: flex; align-items: center; gap: 8px; padding: 9px 10px; background: #fff; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; font-weight: 500; color: #334155; cursor: pointer; user-select: none; transition: all .15s; }
+    .jb-chip:hover { background: #f1f5f9; border-color: #94a3b8; }
+    .jb-chip input { margin: 0; width: auto; cursor: pointer; }
+    .jb-chip.checked { background: #e8eef6; border-color: #1a3d6d; color: #1a3d6d; font-weight: 600; }
+
+    .jb-msg { padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 500; display: none; }
+    .jb-msg.ok { display: block; background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .jb-msg.err { display: block; background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+    /* Estilos do Histórico Duda */
     .jbh-wrap {
-      background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+      width: 100% !important;
+      max-width: 1750px;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #1e293b;
+      display: block;
     }
-    .jbh-table-wrap { overflow-x: auto; margin-top: 12px; }
-    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-    th { background: #f8fafc; padding: 9px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
-    td { padding: 9px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    .jbh-top-bar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #e2e8f0; }
+    .jbh-acoes { display: flex; flex-wrap: wrap; gap: 8px; }
+    .jbh-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .jbh-tab { flex: 1; min-width: 130px; padding: 10px 14px; border: 1px solid #cbd5e1; background: #fff; color: #475569; font-weight: 600; font-size: 14px; cursor: pointer; border-radius: 8px; text-align: center; }
+    .jbh-tab.active { background: #1a3d6d; color: #fff; border-color: #1a3d6d; }
 
-    /* Responsividade */
+    .jbh-kpis { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .jbh-kpi-card { flex: 1; min-width: 150px; background: #fff; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 8px; }
+    .jbh-kpi-label { font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; }
+    .jbh-kpi-val { font-size: 18px; font-weight: 700; color: #1a3d6d; margin-top: 3px; }
+
+    .jbh-atalhos-data {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      background: #e8eef6;
+      border: 1px solid #cbd5e1;
+      padding: 10px 14px;
+      border-radius: 10px;
+    }
+    .jbh-atalhos-data span { font-size: 13px; font-weight: 700; color: #1a3d6d; margin-right: 4px; }
+    .jbh-btn-atalho {
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      background: #fff;
+      color: #1a3d6d;
+      cursor: pointer;
+      transition: all .15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .jbh-btn-atalho:hover, .jbh-btn-atalho.active {
+      background: #1a3d6d;
+      color: #fff;
+      border-color: #1a3d6d;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(26,61,109,.25);
+    }
+    .jbh-btn-atalho.jbh-limpar { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+    .jbh-btn-atalho.jbh-limpar:hover { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+
+    .jbh-filtros { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
+    .jbh-filtros label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: #475569; flex: 1; min-width: 160px; }
+    .jbh-filtros input, .jbh-filtros select { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-family: inherit; }
+    .jbh-info { font-size: 12px; color: #64748b; margin-bottom: 8px; font-weight: 600; }
+
+    .jbh-scroll {
+      width: 100%;
+      overflow-x: auto;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      max-height: 70vh;
+      box-shadow: 0 1px 3px rgba(0,0,0,.04);
+      -webkit-overflow-scrolling: touch;
+    }
+    .jbh-table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    .jbh-table th {
+      position: sticky; top: 0; z-index: 10;
+      background: #f8fafc; color: #334155; font-weight: 600; padding: 10px 12px; white-space: nowrap; border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 0 #e2e8f0;
+    }
+    .jbh-table td { padding: 9px 12px; border-top: 1px solid #f1f5f9; vertical-align: middle; }
+    .jbh-obs { min-width: 220px; max-width: 400px; white-space: pre-wrap; font-size: 12px; color: #475569; }
+    .jbh-vazio { padding: 25px; text-align: center; color: #64748b; margin: 0; }
+    .jbh-badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+    .jbh-badge.sim { background: #dcfce7; color: #15803d; }
+    .jbh-badge.nao { background: #f1f5f9; color: #64748b; }
+
+    .jbh-th-filter { cursor: pointer; user-select: none; position: relative; }
+    .jbh-th-filter:hover { background: #edf2f7; color: #1a3d6d; }
+    .jbh-th-filter::after { content: ' ▾'; font-size: 10px; color: #94a3b8; }
+    .jbh-th-filter.jbh-filtered { background: #e0f2fe !important; color: #0369a1 !important; }
+    .jbh-th-filter.jbh-filtered::after { content: ' •▾'; color: #0284c7; font-weight: bold; }
+    .jbh-filter-drop {
+      position: absolute; top: 100%; left: 0; z-index: 50; background: #fff; border: 1px solid #cbd5e1;
+      border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,.15); padding: 4px 0; min-width: 140px; display: none; text-align: left;
+    }
+    .jbh-filter-drop.open { display: block; }
+    .jbh-filter-opt { padding: 6px 12px; font-size: 12px; color: #334155; cursor: pointer; white-space: nowrap; font-weight: 500; }
+    .jbh-filter-opt:hover { background: #f1f5f9; color: #1a3d6d; }
+    .jbh-filter-opt.active { background: #e0f2fe; color: #0369a1; font-weight: 700; }
+
     @media (max-width: 900px) {
       .jbm-main { flex-direction: column-reverse; height: auto; }
       .jbm-sidebar { width: 100%; height: 420px; }
       #jbm-map { height: 420px; min-height: 420px; }
       .jbm-grid-2 { grid-template-columns: 1fr; }
-      .jbp-nav { width: 100%; justify-content: flex-start; }
-      .jbp-user-pill { width: 100%; margin-left: 0; justify-content: space-between; }
+      .jb-row { flex-direction: column; }
+      .jb-marcas-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- ECRÃ DE LOGIN SEGURO -->
+  <!-- ECRÃ DE LOGIN -->
   <div class="jbp-login-wrap" id="jbp-login-view">
     <div class="jbp-login-box">
       <div class="jbp-login-logo">JB</div>
@@ -570,7 +626,6 @@
   <!-- APLICAÇÃO PRINCIPAL AUTENTICADA -->
   <div class="jbp-app jbp-hide" id="jbp-app-view">
     
-    <!-- Topo / Barra de Navegação -->
     <header class="jbp-top">
       <div class="jbp-brand">
         <div class="jbp-logo-sm">JB</div>
@@ -582,8 +637,8 @@
 
       <nav class="jbp-nav">
         <button type="button" class="jbp-nav-btn active" data-tab="mapa">🗺️ Mapa de Clientes</button>
-        <button type="button" class="jbp-nav-btn" data-tab="registos">✍️ Registar Atividade</button>
-        <button type="button" class="jbp-nav-btn" data-tab="historico">📊 Histórico</button>
+        <button type="button" class="jbp-nav-btn" data-tab="registos">📝 Registar Atividade</button>
+        <button type="button" class="jbp-nav-btn" data-tab="historico">📊 Histórico & Dashboard</button>
       </nav>
 
       <div class="jbp-user-pill">
@@ -633,7 +688,7 @@
             <div class="jbm-sort-bar">
               <span>Ordenar:</span>
               <button type="button" class="jbm-sort-btn active" id="jbm-sort-urgencia">🚨 Urgência</button>
-              <button type="button" class="jbm-sort-btn" id="jbm-sort-dias">⏱️ Dias</button>
+              <button type="button" class="jbm-sort-btn" id="jbm-sort-dias">⌛ Dias</button>
               <button type="button" class="jbm-sort-btn" id="jbm-sort-nome">Loja</button>
             </div>
           </div>
@@ -642,177 +697,226 @@
       </main>
     </section>
 
-    <!-- ABA 2: REGISTAR ATIVIDADE -->
+    <!-- ABA 2: REGISTAR ATIVIDADE (100% FIEL À DUDA) -->
     <section class="jbp-panel" id="jbp-panel-registos">
-      <div class="jbr-wrap">
-        <div class="jbr-subtabs">
-          <button type="button" class="jbr-subtab active" data-sub="visitas">📝 Registo de Visita</button>
-          <button type="button" class="jbr-subtab" data-sub="rotas">🚗 Registo de Rota</button>
-          <button type="button" class="jbr-subtab" data-sub="abastecimentos">⛽ Abastecimento</button>
+      <div class="jb-wrap">
+        <div class="jb-header">
+          <div class="jb-logo-badge">JB</div>
+          <div class="jb-header-text">
+            <strong>JB COMÉRCIO GLOBAL</strong>
+            <span>Registo de Atividades no Terreno</span>
+          </div>
+        </div>
+
+        <div class="jb-tabs" id="jbr-tabs">
+          <button type="button" class="jb-tab active" data-target="visitas">Registo de Visitas</button>
+          <button type="button" class="jb-tab" data-target="rotas">Registo de Rotas</button>
+          <button type="button" class="jb-tab" data-target="abastecimentos">Abastecimento</button>
         </div>
 
         <!-- FORMULÁRIO 1: VISITAS -->
-        <form class="jbr-form active" id="jbr-form-visitas" data-tipo="visitas">
+        <form class="jb-form active" id="jb-form-visitas" data-tipo="visitas">
           <input type="hidden" name="comercial" class="jbp-field-comercial">
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Já é cliente?</label>
-              <select name="ja_cliente" id="jbr-visita-ja-cliente">
+          <div class="jb-row">
+            <label>Já é cliente?
+              <select name="ja_cliente" id="jbr-ja-cliente">
                 <option value="Sim">Sim (Cliente habitual)</option>
                 <option value="Não">Não (Potencial cliente)</option>
               </select>
-            </div>
-            <div class="jbm-campo">
-              <label>Pesquisar / Selecionar Loja</label>
-              <input type="text" id="jbr-visita-busca" list="jbr-dl-clientes" placeholder="Nº ou nome...">
+            </label>
+            <label id="jbr-wrap-busca">Pesquisar / Selecionar Loja
+              <input type="text" id="jbr-busca-cliente" list="jbr-dl-clientes" placeholder="Nº ou nome da loja...">
               <datalist id="jbr-dl-clientes"></datalist>
-            </div>
+            </label>
           </div>
 
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Nº do Cliente</label>
-              <input type="text" name="nif" id="jbr-visita-nif" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Nome da Loja</label>
-              <input type="text" name="loja" id="jbr-visita-loja" required>
-            </div>
+          <div class="jb-row">
+            <label id="jbr-wrap-nif">Nº do Cliente
+              <input type="text" name="nif" id="jbr-nif" required>
+            </label>
+            <label>Nome da Loja
+              <input type="text" name="loja" id="jbr-loja" required>
+            </label>
           </div>
 
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Morada</label>
-              <input type="text" name="morada" id="jbr-visita-morada" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Localidade</label>
-              <input type="text" name="localidade" id="jbr-visita-localidade" required>
-            </div>
+          <div class="jb-row">
+            <label>Morada
+              <input type="text" name="morada" id="jbr-morada" required>
+            </label>
+            <label>Localidade
+              <input type="text" name="localidade" id="jbr-localidade" required>
+            </label>
           </div>
 
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Contacto / Responsável</label>
-              <input type="text" name="contacto" id="jbr-visita-contacto" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Telefone</label>
-              <input type="tel" name="telefone" id="jbr-visita-telefone">
-            </div>
+          <div class="jb-row">
+            <label>Pessoa de Contacto
+              <input type="text" name="contacto" id="jbr-contacto" required>
+            </label>
+            <label>Telefone
+              <input type="tel" name="telefone" id="jbr-telefone">
+            </label>
           </div>
 
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Dia da Visita</label>
-              <input type="date" name="dia" id="jbr-visita-dia" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Horário (Entrada / Saída)</label>
-              <div style="display:flex;gap:4px;">
-                <input type="time" name="entrada" id="jbr-visita-entrada" required style="flex:1;">
-                <input type="time" name="saida" id="jbr-visita-saida" required style="flex:1;">
+          <div class="jb-row">
+            <label>Data da Visita
+              <input type="date" name="dia" id="jbr-dia" required>
+            </label>
+            <label>Hora de Entrada
+              <div class="jb-hora-wrap">
+                <input type="time" name="entrada" id="jbr-entrada" required>
+                <button type="button" class="jb-btn-agora" data-target="jbr-entrada">⏱️ Agora</button>
               </div>
-            </div>
+            </label>
+            <label>Hora de Saída
+              <div class="jb-hora-wrap">
+                <input type="time" name="saida" id="jbr-saida" required>
+                <button type="button" class="jb-btn-agora" data-target="jbr-saida">⏱️ Agora</button>
+              </div>
+            </label>
           </div>
 
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Efetuou Nova Encomenda?</label>
+          <div class="jb-row">
+            <label>Efetuou Nova Encomenda?
               <select name="nova_encomenda">
                 <option value="Não">Não</option>
                 <option value="Sim">Sim</option>
               </select>
-            </div>
-            <div class="jbm-campo">
-              <label>Comprou Marca Nova?</label>
-              <select name="marca_nova">
+            </label>
+            <label>Comprou Marca Nova?
+              <select name="marca_nova" id="jbr-marca-nova">
                 <option value="Não">Não</option>
                 <option value="Sim">Sim</option>
               </select>
-            </div>
+            </label>
           </div>
 
-          <div class="jbm-campo">
-            <label>Marcas Compradas / Observações</label>
-            <textarea name="quais_marcas" rows="2" placeholder="Marcas compradas ou notas adicionais..."></textarea>
+          <div class="jb-marcas-wrap" id="jbr-wrap-marcas">
+            <span style="font-size:13px;font-weight:600;color:#334155;">Selecione as marcas compradas:</span>
+            <div class="jb-marcas-grid">
+              <label class="jb-chip"><input type="checkbox" value="Caderno Inteligente"> Caderno Inteligente</label>
+              <label class="jb-chip"><input type="checkbox" value="Cavallini & Co."> Cavallini & Co.</label>
+              <label class="jb-chip"><input type="checkbox" value="Cool Bottles"> Cool Bottles</label>
+              <label class="jb-chip"><input type="checkbox" value="Happily"> Happily</label>
+              <label class="jb-chip"><input type="checkbox" value="Herma"> Herma</label>
+              <label class="jb-chip"><input type="checkbox" value="Litem"> Litem</label>
+              <label class="jb-chip"><input type="checkbox" value="mt masking tape"> mt masking tape</label>
+              <label class="jb-chip"><input type="checkbox" value="Morris"> Morris</label>
+              <label class="jb-chip"><input type="checkbox" value="Newpen"> Newpen</label>
+              <label class="jb-chip"><input type="checkbox" value="Pencil Wrap"> Pencil Wrap</label>
+              <label class="jb-chip"><input type="checkbox" value="Sip by S'well"> Sip by S'well</label>
+            </div>
+            <input type="hidden" name="quais_marcas" id="jbr-quais-marcas">
           </div>
+
+          <label>Observações / Notas da Visita
+            <textarea name="observacoes" rows="3" placeholder="Notas sobre a reunião, produtos discutidos, seguimento..."></textarea>
+          </label>
 
           <button type="submit" class="jbp-btn">📤 Submeter Registo de Visita</button>
-          <div class="jbr-msg" id="jbr-msg-visitas"></div>
+          <div class="jb-msg" id="jbr-msg-visitas"></div>
         </form>
 
         <!-- FORMULÁRIO 2: ROTAS -->
-        <form class="jbr-form" id="jbr-form-rotas" data-tipo="rotas">
+        <form class="jb-form" id="jb-form-rotas" data-tipo="rotas">
           <input type="hidden" name="comercial" class="jbp-field-comercial">
-          <div class="jbm-campo">
-            <label>Data</label>
-            <input type="date" name="data" required>
-          </div>
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Início da Rota</label>
+          <label>Data
+            <input type="date" name="data" id="jbr-rota-data" required>
+          </label>
+          <div class="jb-row">
+            <label>Início da Rota
               <input type="text" name="inicio" placeholder="Ex.: Vila do Conde / Casa" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Fim da Rota</label>
+            </label>
+            <label>Fim da Rota
               <input type="text" name="fim" placeholder="Ex.: Vila do Conde" required>
-            </div>
+            </label>
           </div>
-          <div class="jbm-campo">
-            <label>Paragens Intermédias / Zonas</label>
+          <label>Paragens Intermédias / Zonas
             <input type="text" name="paragens" placeholder="Ex.: Braga, Guimarães, Famalicão" required>
-          </div>
-          <div class="jbm-campo">
-            <label>Observações</label>
-            <textarea name="observacoes" rows="2"></textarea>
-          </div>
+          </label>
+          <label>Observações
+            <textarea name="observacoes" rows="3" placeholder="Notas da rota..."></textarea>
+          </label>
           <button type="submit" class="jbp-btn">📤 Submeter Registo de Rota</button>
-          <div class="jbr-msg" id="jbr-msg-rotas"></div>
+          <div class="jb-msg" id="jbr-msg-rotas"></div>
         </form>
 
-        <!-- FORMULÁRIO 3: ABASTECIMENTOS -->
-        <form class="jbr-form" id="jbr-form-abastecimentos" data-tipo="abastecimentos">
+        <!-- FORMULÁRIO 3: ABASTECIMENTO -->
+        <form class="jb-form" id="jb-form-abastecimentos" data-tipo="abastecimentos">
           <input type="hidden" name="comercial" class="jbp-field-comercial">
-          <div class="jbm-grid-2">
-            <div class="jbm-campo">
-              <label>Km antes do abastecimento</label>
+          <div class="jb-row">
+            <label>Km antes do abastecimento
               <input type="number" name="km_antes" required>
-            </div>
-            <div class="jbm-campo">
-              <label>Valor Pago (€)</label>
+            </label>
+            <label>Valor Pago (€)
               <input type="number" step="0.01" name="valor" required>
-            </div>
+            </label>
           </div>
-          <div class="jbm-campo">
-            <label>Foto do conta-quilómetros (Opcional)</label>
+          <label>Foto do conta-quilómetros (Opcional - comprimida no envio)
             <input type="file" name="foto_ficheiro" accept="image/*">
-          </div>
+          </label>
           <button type="submit" class="jbp-btn">📤 Submeter Abastecimento</button>
-          <div class="jbr-msg" id="jbr-msg-abastecimentos"></div>
+          <div class="jb-msg" id="jbr-msg-abastecimentos"></div>
         </form>
       </div>
     </section>
 
-    <!-- ABA 3: HISTÓRICO COMERCIAL -->
+    <!-- ABA 3: HISTÓRICO & DASHBOARD (100% FIEL À DUDA COM KPIs) -->
     <section class="jbp-panel" id="jbp-panel-historico">
       <div class="jbh-wrap">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <div style="display:flex;gap:6px;" id="jbh-tipo-btns">
-            <button type="button" class="jbp-nav-btn active" data-htipo="visitas">Visitas</button>
-            <button type="button" class="jbp-nav-btn" data-htipo="rotas">Rotas</button>
-            <button type="button" class="jbp-nav-btn" data-htipo="abastecimentos">Abastecimentos</button>
+        <div class="jbh-top-bar">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="jb-logo-badge" style="width:34px;height:34px;font-size:14px;">JB</div>
+            <div>
+              <strong style="font-size:15px;color:#1a3d6d;">Dashboard & Histórico de Campo</strong>
+              <div style="font-size:11px;color:#64748b;">Métricas em tempo real & Registos sincronizados</div>
+            </div>
           </div>
-          <div id="jbh-admin-com-wrap" class="jbp-hide">
-            <label style="font-size:12px;font-weight:700;">Filtrar Comercial: 
-              <select id="jbh-sel-comercial" style="padding:4px 8px;border-radius:5px;border:1px solid var(--border);font-family:inherit;">
-                <option value="">Todos</option>
-              </select>
-            </label>
+          <div class="jbh-acoes">
+            <button type="button" class="jbp-nav-btn" id="jbh-btn-imprimir">🖨️ Imprimir</button>
+            <button type="button" class="jbp-nav-btn jbp-hide" id="jbh-btn-csv">📥 Exportar CSV</button>
+            <button type="button" class="jbp-nav-btn" id="jbh-btn-atualizar">🔄 Atualizar</button>
           </div>
         </div>
-        <div id="jbh-summary-txt" style="font-size:12px;color:var(--muted);margin-top:8px;font-weight:600;"></div>
-        <div class="jbh-table-wrap" id="jbh-table-cont"></div>
+
+        <div class="jbh-tabs" id="jbh-tabs">
+          <button type="button" class="jbh-tab active" data-tipo="visitas">Visitas</button>
+          <button type="button" class="jbh-tab" data-tipo="rotas">Rotas</button>
+          <button type="button" class="jbh-tab" data-tipo="abastecimentos">Abastecimentos</button>
+        </div>
+
+        <!-- DASHBOARD DE KPIs -->
+        <div class="jbh-kpis" id="jbh-kpis"></div>
+
+        <!-- ATALHOS DE PERÍODO -->
+        <div class="jbh-atalhos-data">
+          <span>Filtrar período:</span>
+          <button type="button" class="jbh-btn-atalho" id="jbh-dt-hoje">Hoje</button>
+          <button type="button" class="jbh-btn-atalho" id="jbh-dt-semana">Esta semana</button>
+          <button type="button" class="jbh-btn-atalho" id="jbh-dt-mes">Este mês</button>
+          <button type="button" class="jbh-btn-atalho active" id="jbh-dt-tudo">Tudo</button>
+          <button type="button" class="jbh-btn-atalho jbh-limpar" id="jbh-dt-limpar" style="margin-left:auto;">Limpar filtros</button>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="jbh-filtros">
+          <label>Pesquisar texto
+            <input type="text" id="jbh-q" placeholder="Procurar em qualquer coluna...">
+          </label>
+          <label>De
+            <input type="date" id="jbh-de">
+          </label>
+          <label>Até
+            <input type="date" id="jbh-ate">
+          </label>
+          <label id="jbh-wrap-sel-com" class="jbp-hide">Comercial
+            <select id="jbh-sel-com">
+              <option value="">Todos os Comerciais</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="jbh-info" id="jbh-info"></div>
+        <div class="jbh-scroll" id="jbh-tabela"></div>
       </div>
     </section>
 
@@ -838,7 +942,7 @@
           <div class="jbm-gps-group">
             <a href="#" target="_blank" class="jbm-btn-gps jbm-btn-gmaps" id="modal-link-gmaps">🗺️ Google Maps</a>
             <a href="#" target="_blank" class="jbm-btn-gps jbm-btn-waze" id="modal-link-waze">🚙 Waze</a>
-            <button type="button" class="jbm-btn-gps jbm-btn-visita" id="modal-btn-ir-visita">✍️ Registar Visita</button>
+            <button type="button" class="jbm-btn-gps jbm-btn-visita" id="modal-btn-ir-visita">📝 Registar Visita</button>
           </div>
         </div>
 
@@ -887,10 +991,8 @@
             <label class="jbm-chip"><input type="checkbox" value="Morris"> Morris</label>
             <label class="jbm-chip"><input type="checkbox" value="Newpen"> Newpen</label>
             <label class="jbm-chip"><input type="checkbox" value="Pencil Wrap"> Pencil Wrap</label>
-            <label class="jbm-chip"><input type="checkbox" value="Sip by Swell"> Sip by Swell</label>
-            <label class="jbm-chip"><input type="checkbox" value="Y-Plus"> Y-Plus</label>
+            <label class="jbm-chip"><input type="checkbox" value="Sip by S'well"> Sip by S'well</label>
           </div>
-          <input type="hidden" id="modal-marcas">
         </div>
 
         <div class="jbm-campo">
@@ -899,84 +1001,67 @@
         </div>
 
         <button type="button" class="jbp-btn" id="modal-btn-salvar" style="margin-top:4px;">💾 Guardar Alterações</button>
+        <div id="modal-msg" style="font-size:12px;font-weight:600;min-height:16px;"></div>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: PLANEAR ROTA COMERCIAL -->
-  <div class="jbm-modal-overlay jbp-hide" id="jbm-rota-modal-overlay">
-    <div class="jbm-modal" style="max-width:650px;">
+  <!-- MODAL: PLANEADOR DE ROTA -->
+  <div class="jbm-modal-overlay jbp-hide" id="jbm-modal-rota">
+    <div class="jbm-modal" style="max-width:700px;">
       <div class="jbm-modal-header">
-        <div>
-          <h3 style="margin:0;font-size:15px;color:var(--rota-blue);font-weight:700;">Planear Rota Comercial</h3>
-          <span style="font-size:11px;color:var(--muted);">Otimizada por estrada para telemóvel</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:18px;">🚗</span>
+          <strong>Planeador de Rota Otimizada</strong>
         </div>
-        <button type="button" class="jbm-btn-close" id="jbm-rota-btn-close">✕</button>
+        <button type="button" class="jbm-btn-close" id="rota-btn-close">✕</button>
       </div>
+
       <div class="jbm-modal-body">
-        <div style="background:#f8fafc;padding:10px;border-radius:8px;border:1px solid #e2e8f0;">
-          <div style="font-size:11.5px;font-weight:700;color:var(--rota-blue);margin-bottom:4px;">📍 PONTO DE PARTIDA</div>
-          <div style="display:flex;gap:6px;">
-            <input type="text" id="jbm-rota-origem-txt" style="flex:1;font-size:12px;padding:6px 10px;" readonly>
-            <button type="button" id="jbm-rota-btn-gps" class="jbm-sort-btn" style="background:#0284c7;color:#fff;">📍 GPS</button>
-          </div>
+        <div style="font-size:12.5px;color:var(--muted);">
+          Selecione os clientes que pretende visitar hoje. O algoritmo OSRM calcula a rota ideal para poupar quilómetros e tempo.
         </div>
 
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;font-weight:600;">
-          <label>Máx. Paragens: 
-            <select id="jbm-rota-max-paragens" style="padding:4px 8px;border-radius:5px;border:1px solid var(--border);">
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8" selected>8 (Recomendado)</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-            </select>
-          </label>
-          <label><input type="checkbox" id="jbm-rota-so-urgentes"> Só em atraso / a vencer</label>
-          <label><input type="checkbox" id="jbm-rota-retorno"> Voltar à partida</label>
+        <div style="display:flex;gap:8px;align-items:center;margin-top:6px;">
+          <input type="text" id="rota-busca" placeholder="Filtrar por nome ou zona..." style="flex:1;padding:7px 10px;border:1px solid var(--border);border-radius:6px;font-size:12.5px;">
+          <button type="button" class="jbm-sort-btn" id="rota-selecionar-todos">Selecionar Todos</button>
+          <button type="button" class="jbm-sort-btn" id="rota-limpar-selecao">Limpar</button>
         </div>
 
-        <div style="font-size:11.5px;font-weight:700;color:var(--rota-blue);margin-top:4px;">👥 LOJAS CANDIDATAS (<span id="jbm-rota-cand-count">0</span>)</div>
-        <div id="jbm-rota-cand-list" style="max-height:140px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;border:1px solid #e2e8f0;padding:6px;border-radius:6px;"></div>
+        <div style="max-height:220px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:6px;margin-top:6px;" id="rota-lista-clientes"></div>
 
-        <button type="button" class="jbp-btn" id="jbm-rota-btn-calcular" style="background:var(--rota-blue);">🚀 Calcular Rota por Estrada</button>
+        <div id="rota-resumo" style="background:#f1f5f9;padding:10px;border-radius:6px;font-size:12px;font-weight:600;display:flex;justify-content:space-between;align-items:center;">
+          <span id="rota-txt-resumo">Nenhum cliente selecionado</span>
+          <button type="button" class="jbm-btn-rota-top" id="rota-btn-calcular" style="padding:6px 12px;font-size:12px;">⚡ Calcular Rota</button>
+        </div>
 
-        <div id="jbm-rota-resultados" class="jbp-hide" style="margin-top:6px;">
-          <div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:8px 12px;border-radius:7px;display:flex;justify-content:space-between;align-items:center;">
-            <div>
-              <strong id="jbm-rota-total-dist" style="color:#065f46;">0 km</strong> · <span id="jbm-rota-total-tempo" style="color:#065f46;">0 min</span>
-              <div id="jbm-rota-num-paragens-txt" style="font-size:11px;color:#047857;">0 paragens ordenadas</div>
-            </div>
-            <div style="display:flex;gap:6px;">
-              <a href="#" target="_blank" class="jbm-btn-gps jbm-btn-gmaps" id="jbm-rota-link-gmaps" style="padding:6px 10px;font-size:11.5px;">🗺️ Google Maps</a>
-              <a href="#" target="_blank" class="jbm-btn-gps jbm-btn-waze" id="jbm-rota-link-waze" style="padding:6px 10px;font-size:11.5px;">🚙 Waze</a>
-            </div>
-          </div>
-          <div id="jbm-rota-fora-wrap" class="jbp-hide" style="font-size:11px;color:#991b1b;background:#fee2e2;padding:6px;border-radius:6px;margin-top:4px;">
-            <strong>Lojas de fora:</strong> <span id="jbm-rota-fora-nomes"></span>
-          </div>
-          <div id="jbm-rota-paragens-lista" style="max-height:160px;overflow-y:auto;display:flex;flex-direction:column;gap:4px;margin-top:6px;"></div>
+        <div id="rota-links-nav" class="jbp-hide" style="display:flex;gap:8px;margin-top:6px;">
+          <a href="#" target="_blank" class="jbm-btn-gps jbm-btn-gmaps" id="rota-link-gmaps" style="padding:8px;">🗺️ Abrir Rota no Google Maps</a>
+          <button type="button" class="jbm-btn-gps" id="rota-btn-limpar-mapa" style="background:#fee2e2;color:#991b1b;border-color:#fecaca;padding:8px;">Limpar do Mapa</button>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- SCRIPT UNIFICADO: MAPA + REGISTOS + HISTÓRICO COM KPIs -->
   <script>
   (function () {
-    // ESTADO GLOBAL DA APLICAÇÃO
     var estado = {
       autenticado: false,
       codigo: '',
       nome: '',
       perfil: '',
-      dados: { rotas: { cols:[], rows:[] }, visitas: { cols:[], rows:[] }, abastecimentos: { cols:[], rows:[] } }
+      dados: { rotas: { cols:[], rows:[] }, visitas: { cols:[], rows:[] }, abastecimentos: { cols:[], rows:[] } },
+      tipoHist: 'visitas',
+      limiteHist: 100,
+      filtrosColHist: {}
     };
 
     var DATA_INICIO_CONTROLO = '2026-11-09';
     var PRAZOS = { verde: 30, laranja: 45, amarelo: 60, lilas: null };
 
-    // BASE DE CLIENTES
-var CLIENTES_BASE = [
+    // BASE DE CLIENTES REAL
+    var CLIENTES_BASE = [
       {num:"6918",nome:"100ª Página, Livraria Lda",morada:"Av. Central 118/120, 4710-229",localidade:"Braga",lat:41.551444,lng:-8.421766,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
       {num:"4042",nome:"Abinepal",morada:"Rua Albano Coelho Lima,467, 4810-356 Guimarães",localidade:"Braga",lat:41.4425,lng:-8.2918,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
       {num:"17386",nome:"Afiaoconhecimento",morada:"Avenida D. Manuel I, nº 2358, 4585-013 Baltar",localidade:"Porto",lat:41.192088,lng:-8.38801,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
@@ -1056,15 +1141,39 @@ var CLIENTES_BASE = [
       {num:"5988",nome:"Velhotes Lda.#",morada:"Rua Gil Eanes, 21, 4400-165 Vila Nova de Gaia",localidade:"Porto",lat:41.1239,lng:-8.6118,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""}
     ];
 
-    // ==========================================
-    // 1. SISTEMA DE AUTENTICAÇÃO
-    // ==========================================
+    var clientes = CLIENTES_BASE.map(function (c) {
+      return Object.assign({}, c, {
+        ultimaVisitaData: null,
+        ultimaVisitaFormatada: '',
+        ultimaVisitaTexto: 'Sem histórico recente',
+        diasSemVisita: null,
+        estadoVisita: 'em-dia',
+        urgenciaScore: 0,
+        distanciaKm: null,
+        marker: null
+      });
+    });
+
     var loginView = document.getElementById('jbp-login-view');
     var appView = document.getElementById('jbp-app-view');
     var loginForm = document.getElementById('jbp-login-form');
     var loginCode = document.getElementById('jbp-login-code');
     var loginErro = document.getElementById('jbp-login-erro');
     var btnLogin = document.getElementById('jbp-btn-login');
+
+    document.querySelectorAll('.jbp-nav-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.jbp-nav-btn').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.jbp-panel').forEach(function (p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        var tabId = 'jbp-panel-' + btn.dataset.tab;
+        var p = document.getElementById(tabId);
+        if (p) p.classList.add('active');
+        if (btn.dataset.tab === 'mapa' && map) {
+          setTimeout(function () { map.invalidateSize(); }, 200);
+        }
+      });
+    });
 
     function tentarLogin(codigo, automatico) {
       if (!codigo) return;
@@ -1090,7 +1199,6 @@ var CLIENTES_BASE = [
 
         try { localStorage.setItem('jb_portal_codigo', codigo); } catch (e) {}
 
-        // Atualizar interface
         document.getElementById('jbp-user-nome').textContent = estado.nome;
         document.getElementById('jbp-user-perfil').textContent = estado.perfil === 'admin' ? 'Administração' : 'Comercial';
         document.querySelectorAll('.jbp-field-comercial').forEach(function (inp) { inp.value = estado.nome; });
@@ -1098,21 +1206,22 @@ var CLIENTES_BASE = [
         loginView.classList.add('jbp-hide');
         appView.classList.remove('jbp-hide');
 
-        // Inicializar Módulos
         sincronizarVisitasNoMapa();
         initMap();
         filtrarClientes();
-        renderHistorico('visitas');
+        inicializarRegistos();
+        inicializarHistorico();
 
         if (estado.perfil === 'admin') {
-          document.getElementById('jbh-admin-com-wrap').classList.remove('jbp-hide');
+          var wrapAdmin = document.getElementById('jbh-wrap-sel-com');
+          if (wrapAdmin) wrapAdmin.classList.remove('jbp-hide');
+          var btnCsv = document.getElementById('jbh-btn-csv');
+          if (btnCsv) btnCsv.classList.remove('jbp-hide');
           preencherFiltroComerciaisAdmin();
         }
       })
       .catch(function (err) {
-        if (!automatico) {
-          loginErro.textContent = err.message || 'Falha ao autenticar.';
-        }
+        if (!automatico) loginErro.textContent = err.message || 'Falha ao autenticar.';
         try { localStorage.removeItem('jb_portal_codigo'); } catch (e) {}
       })
       .finally(function () {
@@ -1130,7 +1239,6 @@ var CLIENTES_BASE = [
       location.reload();
     });
 
-    // Auto-login se código guardado
     try {
       var codGuardado = localStorage.getItem('jb_portal_codigo');
       if (codGuardado) {
@@ -1139,187 +1247,92 @@ var CLIENTES_BASE = [
       }
     } catch (e) {}
 
-    // ==========================================
-    // 2. NAVEGAÇÃO ENTRE ABAS
-    // ==========================================
-    document.querySelectorAll('.jbp-nav-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.jbp-nav-btn').forEach(function (b) { b.classList.remove('active'); });
-        document.querySelectorAll('.jbp-panel').forEach(function (p) { p.classList.remove('active'); });
-        btn.classList.add('active');
-        var targetPanel = document.getElementById('jbp-panel-' + btn.dataset.tab);
-        if (targetPanel) targetPanel.classList.add('active');
-        if (btn.dataset.tab === 'mapa' && map) {
-          setTimeout(function () { map.invalidateSize(); }, 200);
-        }
-      });
-    });
+    // MAPA
+    var map, markersLayer, rotaLayer;
+    var filtroCorAtivo = 'todas';
+    var ordenacaoAtiva = 'urgencia';
+    var termoBusca = '';
+    var userLocation = null;
+    var raioGpsAtivo = 10;
+    var gpsAtivo = false;
+    var rotaClientesSelecionados = new Set();
 
-    // ==========================================
-    // 3. MÓDULO MAPA & CRM LOGIC
-    // ==========================================
-    function parseData(str) {
-      if (!str) return null;
-      var s = String(str).trim();
-      var mIso = /^(\d{4})-(\d{2})-(\d{2})/.exec(s);
-      if (mIso) return new Date(Number(mIso[1]), Number(mIso[2]) - 1, Number(mIso[3]));
-      var mPt = /^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/.exec(s);
-      if (mPt) return new Date(Number(mPt[3]), Number(mPt[2]) - 1, Number(mPt[1]));
-      var dt = new Date(s);
-      return !isNaN(dt.getTime()) ? dt : null;
-    }
-
-    function formatarDataPT(dt) {
-      if (!dt) return '';
-      var d = ('0' + dt.getDate()).slice(-2);
-      var m = ('0' + (dt.getMonth() + 1)).slice(-2);
-      var y = String(dt.getFullYear()).slice(-2);
-      return d + '/' + m + '/' + y;
-    }
-
-    function calcularDiasDesde(dataVal) {
-      var d = (dataVal instanceof Date) ? dataVal : parseData(dataVal);
-      if (!d) return 0;
-      var agora = new Date();
-      var partes = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Lisbon', year: 'numeric', month: '2-digit', day: '2-digit' }).format(agora).split('-');
-      var hoje = new Date(Number(partes[0]), Number(partes[1]) - 1, Number(partes[2]));
-      var dtRef = new Date(d.getTime());
-      dtRef.setHours(0,0,0,0);
-      var dif = hoje.getTime() - dtRef.getTime();
-      return Math.max(0, Math.floor(dif / (1000 * 60 * 60 * 24)));
+    function formatarDataPT(d) {
+      if (!d || isNaN(d.getTime())) return '';
+      var dia = ('0' + d.getDate()).slice(-2);
+      var mes = ('0' + (d.getMonth() + 1)).slice(-2);
+      return dia + '/' + mes + '/' + d.getFullYear();
     }
 
     function avaliarEstadoCliente(c) {
-      var prazo = PRAZOS[c.cor] || null;
-      var dtInicio = parseData(DATA_INICIO_CONTROLO);
-      var dtRef = dtInicio;
-      if (c.ultimaVisitaData && c.ultimaVisitaData > dtInicio) {
-        dtRef = c.ultimaVisitaData;
-      }
-      var dias = calcularDiasDesde(dtRef);
-      c.diasSemVisita = dias;
-      c.prazo = prazo;
+      var agora = new Date();
+      var dataRef = c.ultimaVisitaData ? c.ultimaVisitaData : new Date(DATA_INICIO_CONTROLO);
+      var diffMs = agora.getTime() - dataRef.getTime();
+      var diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      if (diffDias < 0) diffDias = 0;
+      c.diasSemVisita = diffDias;
 
-      if (!prazo) {
-        c.estado = 'potencial';
-        c.estadoLabel = 'Potencial';
-        c.ratioUrgencia = 0;
-        c.barraPercent = 0;
+      if (c.cor === 'lilas') {
+        c.estadoVisita = 'potencial';
+        c.urgenciaScore = 0;
         return;
       }
 
-      var diasRestantes = prazo - dias;
-      c.diasRestantes = diasRestantes;
-      c.ratioUrgencia = dias / prazo;
-      c.barraPercent = Math.min(100, Math.round((dias / prazo) * 100));
+      var prazo = PRAZOS[c.cor] || 30;
+      var margem = Math.max(3, Math.round(prazo * 0.15));
 
-      if (dias > prazo) {
-        c.estado = 'em-atraso';
-        c.estadoLabel = '⚠️ Em atraso (' + (dias - prazo) + 'd)';
-      } else if (diasRestantes <= 7) {
-        c.estado = 'a-vencer';
-        c.estadoLabel = '⏳ A vencer (' + diasRestantes + 'd)';
+      if (diffDias > prazo) {
+        c.estadoVisita = 'em-atraso';
+        c.urgenciaScore = 1000 + (diffDias - prazo);
+      } else if (diffDias >= (prazo - margem)) {
+        c.estadoVisita = 'a-vencer';
+        c.urgenciaScore = 500 + diffDias;
       } else {
-        c.estado = 'em-dia';
-        c.estadoLabel = '✅ Em dia (' + diasRestantes + 'd)';
+        c.estadoVisita = 'em-dia';
+        c.urgenciaScore = diffDias;
       }
     }
 
-    var clientes = CLIENTES_BASE.map(function (c) {
-      var o = Object.assign({}, c, {
-        ultimaVisitaData: null,
-        ultimaVisitaFormatada: '',
-        totalVisitas: 0,
-        ultimaVisitaTexto: ''
+    function sincronizarVisitasNoMapa() {
+      var visitas = (estado.dados && estado.dados.visitas && estado.dados.visitas.rows) || [];
+      var cols = (estado.dados && estado.dados.visitas && estado.dados.visitas.cols) || [];
+      var iNif = cols.indexOf('nif');
+      var iDia = cols.indexOf('dia');
+
+      var ultimasPorNif = {};
+      visitas.forEach(function (r) {
+        var nifVal = iNif >= 0 ? String(r[iNif] || '').trim() : '';
+        var diaVal = iDia >= 0 ? r[iDia] : null;
+        if (!nifVal || !diaVal) return;
+        var d = new Date(diaVal);
+        if (isNaN(d.getTime())) return;
+        if (!ultimasPorNif[nifVal] || d > ultimasPorNif[nifVal]) {
+          ultimasPorNif[nifVal] = d;
+        }
       });
-      avaliarEstadoCliente(o);
-      o.ultimaVisitaTexto = o.diasSemVisita + ' dias sem visitar';
-      return o;
-    });
 
-    var map = null;
-    var markersMap = {};
-    var rotaLinhaLayer = null;
-    var rotaMarcadoresGroup = null;
-    var userLocation = null;
-    var userMarker = null;
-    var userRadiusCircle = null;
-    var filtroCor = 'todas';
-    var filtroTexto = '';
-    var filtroPertoDeMim = false;
-    var raioKm = 10;
-    var criterioOrdenacao = 'urgencia';
-    var clienteSelecionado = null;
-
-    function calcDistancia(lat1, lon1, lat2, lon2) {
-      var R = 6371;
-      var dLat = (lat2 - lat1) * Math.PI / 180;
-      var dLon = (lon2 - lon1) * Math.PI / 180;
-      var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-      return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
-    }
-
-    function initMap() {
-      if (map || typeof L === 'undefined') return;
-      var el = document.getElementById('jbm-map');
-      if (!el) return;
-
-      map = L.map('jbm-map').setView([41.45, -8.45], 9);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-      }).addTo(map);
-
-      rotaMarcadoresGroup = L.layerGroup().addTo(map);
-
-      setTimeout(function () {
-        if (map) { map.invalidateSize(); filtrarClientes(); }
-      }, 300);
-    }
-
-    function criarIcone(cor, atrasado) {
-      return L.divIcon({
-        className: 'jbm-div-icon',
-        html: '<div class="jbm-marker-pin ' + cor + (atrasado ? ' atraso' : '') + '"></div>',
-        iconSize: [30, 42],
-        iconAnchor: [15, 30]
+      clientes.forEach(function (c) {
+        if (ultimasPorNif[c.num]) {
+          c.ultimaVisitaData = ultimasPorNif[c.num];
+          c.ultimaVisitaFormatada = formatarDataPT(c.ultimaVisitaData);
+          avaliarEstadoCliente(c);
+          c.ultimaVisitaTexto = 'Últ. Visita (' + c.ultimaVisitaFormatada + ') · ' + c.diasSemVisita + ' dias sem visitar';
+        } else {
+          avaliarEstadoCliente(c);
+          c.ultimaVisitaTexto = 'Sem visitas desde 09/11 · ' + c.diasSemVisita + ' dias';
+        }
       });
+
+      atualizarContadores();
     }
-
-    function desenharMarcadores(lista) {
-      if (!map) return;
-      Object.keys(markersMap).forEach(function (k) { map.removeLayer(markersMap[k]); });
-      markersMap = {};
-
-      lista.forEach(function (c) {
-        if (!c.lat || !c.lng) return;
-        var marker = L.marker([c.lat, c.lng], { icon: criarIcone(c.cor, c.estado === 'em-atraso') });
-        marker.bindPopup('<strong>' + c.nome + ' (#' + c.num + ')</strong><br>' + c.morada + '<br><br>' +
-          '<span>' + c.estadoLabel + '</span><br><br>' +
-          '<button type="button" onclick="window.jbpAbrirFichaPorNum(\'' + c.num + '\')" style="width:100%;padding:6px;background:var(--primary);color:#fff;border:0;border-radius:4px;cursor:pointer;">📋 Ver Ficha</button>'
-        );
-        marker.on('click', function () { abrirModal(c); });
-        marker.addTo(map);
-        markersMap[c.num] = marker;
-      });
-    }
-
-    window.jbpAbrirFichaPorNum = function (num) {
-      for (var i = 0; i < clientes.length; i++) {
-        if (clientes[i].num === num) { abrirModal(clientes[i]); break; }
-      }
-    };
 
     function atualizarContadores() {
-      var counts = { verde: 0, laranja: 0, amarelo: 0, lilas: 0, atraso: 0 };
+      var counts = { todas: clientes.length, verde: 0, laranja: 0, amarelo: 0, lilas: 0, atraso: 0 };
       clientes.forEach(function (c) {
-        avaliarEstadoCliente(c);
         if (counts[c.cor] !== undefined) counts[c.cor]++;
-        if (c.estado === 'em-atraso') counts.atraso++;
+        if (c.estadoVisita === 'em-atraso') counts.atraso++;
       });
-      document.getElementById('count-todos').textContent = clientes.length;
+      document.getElementById('count-todos').textContent = counts.todas;
       document.getElementById('count-verde').textContent = counts.verde;
       document.getElementById('count-laranja').textContent = counts.laranja;
       document.getElementById('count-amarelo').textContent = counts.amarelo;
@@ -1327,234 +1340,183 @@ var CLIENTES_BASE = [
       document.getElementById('count-atraso').textContent = counts.atraso;
     }
 
+    function initMap() {
+      if (map) return;
+      map = L.map('jbm-map').setView([41.35, -8.45], 10);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      markersLayer = L.layerGroup().addTo(map);
+      rotaLayer = L.layerGroup().addTo(map);
+    }
+
+    function criarIcone(c) {
+      var cls = 'jbm-marker-pin ' + c.cor;
+      if (c.estadoVisita === 'em-atraso') cls += ' atraso';
+      return L.divIcon({
+        className: 'custom-pin',
+        html: '<div class="' + cls + '"></div>',
+        iconSize: [24, 24],
+        iconAnchor: [12, 24]
+      });
+    }
+
     function filtrarClientes() {
-      var filtrados = clientes.filter(function (c) {
-        if (filtroCor === 'atraso') {
-          if (c.estado !== 'em-atraso') return false;
-        } else if (filtroCor !== 'todas') {
-          if (c.cor !== filtroCor) return false;
+      var lista = clientes.filter(function (c) {
+        if (filtroCorAtivo === 'atraso') {
+          if (c.estadoVisita !== 'em-atraso') return false;
+        } else if (filtroCorAtivo !== 'todas') {
+          if (c.cor !== filtroCorAtivo) return false;
         }
-        if (filtroTexto) {
-          var t = (c.nome + ' ' + c.num + ' ' + c.morada + ' ' + c.localidade).toLowerCase();
-          if (t.indexOf(filtroTexto.toLowerCase()) < 0) return false;
-        }
-        if (userLocation && c.lat && c.lng) {
-          c._dist = calcDistancia(userLocation.lat, userLocation.lng, c.lat, c.lng);
-        } else {
-          c._dist = null;
-        }
-        if (filtroPertoDeMim && userLocation) {
-          if (c._dist === null || c._dist > raioKm) return false;
+        if (gpsAtivo && c.distanciaKm != null && c.distanciaKm > raioGpsAtivo) return false;
+        if (termoBusca) {
+          var t = termoBusca.toLowerCase();
+          var match = (c.nome && c.nome.toLowerCase().indexOf(t) >= 0) ||
+                      (c.num && c.num.indexOf(t) >= 0) ||
+                      (c.localidade && c.localidade.toLowerCase().indexOf(t) >= 0);
+          if (!match) return false;
         }
         return true;
       });
 
-      if (filtroPertoDeMim && userLocation) {
-        filtrados.sort(function (a, b) { return (a._dist || 0) - (b._dist || 0); });
-      } else if (criterioOrdenacao === 'urgencia') {
-        filtrados.sort(function (a, b) {
-          var peso = { 'em-atraso': 3, 'a-vencer': 2, 'em-dia': 1, 'potencial': 0 };
-          var pA = peso[a.estado] || 0;
-          var pB = peso[b.estado] || 0;
-          if (pA !== pB) return pB - pA;
-          if (a.ratioUrgencia !== b.ratioUrgencia) return b.ratioUrgencia - a.ratioUrgencia;
-          return (b.diasSemVisita || 0) - (a.diasSemVisita || 0);
-        });
-      } else if (criterioOrdenacao === 'dias') {
-        filtrados.sort(function (a, b) { return (b.diasSemVisita || 0) - (a.diasSemVisita || 0); });
-      } else if (criterioOrdenacao === 'nome') {
-        filtrados.sort(function (a, b) { return a.nome.localeCompare(b.nome); });
+      if (ordenacaoAtiva === 'urgencia') {
+        lista.sort(function (a, b) { return b.urgenciaScore - a.urgenciaScore; });
+      } else if (ordenacaoAtiva === 'dias') {
+        lista.sort(function (a, b) { return (b.diasSemVisita || 0) - (a.diasSemVisita || 0); });
+      } else {
+        lista.sort(function (a, b) { return a.nome.localeCompare(b.nome); });
       }
 
-      renderLista(filtrados);
-      desenharMarcadores(filtrados);
-      atualizarContadores();
+      renderSidebar(lista);
+      renderPins(lista);
     }
 
-    function renderLista(lista) {
+    function renderSidebar(lista) {
       var cont = document.getElementById('jbm-lista');
       cont.innerHTML = '';
       document.getElementById('jbm-sidebar-count').textContent = 'A mostrar ' + lista.length;
-
-      if (!lista.length) {
-        cont.innerHTML = '<p style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">Nenhum cliente com estes filtros.</p>';
-        return;
-      }
 
       lista.forEach(function (c) {
         var card = document.createElement('div');
         card.className = 'jbm-card cor-' + c.cor;
 
-        var distBadge = '';
-        if (userLocation && c._dist !== null) {
-          var distLabel = c._dist < 1 ? Math.round(c._dist * 1000) + ' m' : c._dist.toFixed(1) + ' km';
-          distBadge = '<span style="font-weight:700;color:#0284c7;">🚗 ' + distLabel + '</span>';
-        }
+        var prazo = PRAZOS[c.cor] || 30;
+        var perc = c.cor === 'lilas' ? 0 : Math.min(100, Math.round(((c.diasSemVisita || 0) / prazo) * 100));
 
-        var progHtml = c.prazo ? 
-          ('<div class="jbm-progress-bar"><div class="jbm-progress-fill ' + c.estado + '" style="width:' + c.barraPercent + '%;"></div></div>') : '';
+        var tagCls = 'em-dia';
+        var tagTxt = 'Em dia';
+        if (c.estadoVisita === 'em-atraso') { tagCls = 'em-atraso'; tagTxt = 'Em atraso'; }
+        else if (c.estadoVisita === 'a-vencer') { tagCls = 'a-vencer'; tagTxt = 'A vencer'; }
+        else if (c.estadoVisita === 'potencial') { tagCls = 'potencial'; tagTxt = 'Potencial'; }
 
-        card.innerHTML = '<div class="jbm-card-top">' +
-          '<div class="jbm-card-nome">' + c.nome + '</div>' +
-          '<div class="jbm-card-num">#' + c.num + '</div>' +
+        card.innerHTML = 
+          '<div class="jbm-card-top">' +
+            '<span class="jbm-card-nome">' + c.nome + '</span>' +
+            '<span class="jbm-card-num">#' + c.num + '</span>' +
           '</div>' +
-          '<div class="jbm-card-morada">📍 ' + c.morada + ' (' + c.localidade + ')</div>' +
-          progHtml +
+          '<div class="jbm-card-morada">📍 ' + c.localidade + (c.distanciaKm != null ? ' · <strong>' + c.distanciaKm.toFixed(1) + 'km</strong>' : '') + '</div>' +
+          '<div class="jbm-progress-bar"><div class="jbm-progress-fill ' + tagCls + '" style="width:' + (c.cor === 'lilas' ? 100 : perc) + '%"></div></div>' +
           '<div class="jbm-card-footer">' +
-          distBadge +
-          '<span class="jbm-tag-status ' + c.estado + '">' + c.estadoLabel + '</span>' +
+            '<span style="color:var(--muted);">' + c.ultimaVisitaTexto + '</span>' +
+            '<span class="jbm-tag-status ' + tagCls + '">' + tagTxt + '</span>' +
           '</div>';
 
-        card.addEventListener('click', function () {
-          if (map && c.lat && c.lng) {
-            map.flyTo([c.lat, c.lng], 15, { duration: 1 });
-            if (markersMap[c.num]) markersMap[c.num].openPopup();
-          }
-          abrirModal(c);
-        });
+        card.addEventListener('click', function () { abrirFichaCliente(c); });
         cont.appendChild(card);
       });
     }
 
-    // Filtros de Botão
-    document.querySelectorAll('.jbm-btn-filter').forEach(function (b) {
-      b.addEventListener('click', function () {
-        document.querySelectorAll('.jbm-btn-filter').forEach(function (el) { el.classList.remove('active'); });
-        b.classList.add('active');
-        filtroCor = b.dataset.cor;
+    function renderPins(lista) {
+      if (!markersLayer) return;
+      markersLayer.clearLayers();
+      var bounds = [];
+
+      lista.forEach(function (c) {
+        if (!c.lat || !c.lng) return;
+        var marker = L.marker([c.lat, c.lng], { icon: criarIcone(c) });
+        marker.on('click', function () { abrirFichaCliente(c); });
+        markersLayer.addLayer(marker);
+        bounds.push([c.lat, c.lng]);
+      });
+
+      if (bounds.length && !gpsAtivo) {
+        map.fitBounds(bounds, { padding: [30, 30] });
+      }
+    }
+
+    document.querySelectorAll('.jbm-btn-filter').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.jbm-btn-filter').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        filtroCorAtivo = btn.dataset.cor;
         filtrarClientes();
       });
     });
 
     document.getElementById('jbm-busca').addEventListener('input', function () {
-      filtroTexto = this.value.trim();
+      termoBusca = this.value.trim();
       filtrarClientes();
     });
 
-    document.getElementById('jbm-sort-urgencia').addEventListener('click', function () {
-      document.querySelectorAll('.jbm-sort-btn').forEach(function (el) { el.classList.remove('active'); });
-      this.classList.add('active');
-      criterioOrdenacao = 'urgencia';
-      filtrarClientes();
-    });
-    document.getElementById('jbm-sort-dias').addEventListener('click', function () {
-      document.querySelectorAll('.jbm-sort-btn').forEach(function (el) { el.classList.remove('active'); });
-      this.classList.add('active');
-      criterioOrdenacao = 'dias';
-      filtrarClientes();
-    });
-    document.getElementById('jbm-sort-nome').addEventListener('click', function () {
-      document.querySelectorAll('.jbm-sort-btn').forEach(function (el) { el.classList.remove('active'); });
-      this.classList.add('active');
-      criterioOrdenacao = 'nome';
-      filtrarClientes();
-    });
+    document.getElementById('jbm-sort-urgencia').addEventListener('click', function () { setOrdenacao('urgencia', this); });
+    document.getElementById('jbm-sort-dias').addEventListener('click', function () { setOrdenacao('dias', this); });
+    document.getElementById('jbm-sort-nome').addEventListener('click', function () { setOrdenacao('nome', this); });
 
-    // Perto de mim & GPS
-    document.getElementById('jbm-btn-gps').addEventListener('click', function () {
-      var btn = this;
-      if (filtroPertoDeMim) {
-        filtroPertoDeMim = false;
-        btn.classList.remove('active');
-        btn.textContent = '📍 Perto de mim';
-        if (userMarker && map) map.removeLayer(userMarker);
-        if (userRadiusCircle && map) map.removeLayer(userRadiusCircle);
-        userLocation = null;
+    function setOrdenacao(tipo, btn) {
+      document.querySelectorAll('.jbm-sort-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      ordenacaoAtiva = tipo;
+      filtrarClientes();
+    }
+
+    var btnGps = document.getElementById('jbm-btn-gps');
+    btnGps.addEventListener('click', function () {
+      if (gpsAtivo) {
+        gpsAtivo = false;
+        btnGps.classList.remove('active');
         filtrarClientes();
         return;
       }
-
-      if (!navigator.geolocation) {
-        if (map) atualizarGPS(map.getCenter().lat, map.getCenter().lng);
-        return;
-      }
-
-      btn.textContent = '⏱️ GPS...';
-      navigator.geolocation.getCurrentPosition(
-        function (pos) { atualizarGPS(pos.coords.latitude, pos.coords.longitude); },
-        function () {
-          btn.textContent = '📍 Perto de mim';
-          if (map) atualizarGPS(map.getCenter().lat, map.getCenter().lng);
-        },
-        { enableHighAccuracy: true, timeout: 8000 }
-      );
+      if (!navigator.geolocation) { alert('Geolocalização não suportada.'); return; }
+      btnGps.textContent = 'A localizar...';
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        userLocation = [pos.coords.latitude, pos.coords.longitude];
+        gpsAtivo = true;
+        btnGps.textContent = '📍 Perto de mim';
+        btnGps.classList.add('active');
+        calcularDistancias();
+        filtrarClientes();
+        map.setView(userLocation, 12);
+      }, function () {
+        alert('Não foi possível obter a sua localização.');
+        btnGps.textContent = '📍 Perto de mim';
+      });
     });
-
-    function atualizarGPS(lat, lng) {
-      userLocation = { lat: lat, lng: lng };
-      filtroPertoDeMim = true;
-      var btn = document.getElementById('jbm-btn-gps');
-      btn.classList.add('active');
-      btn.textContent = '📍 Perto (' + raioKm + 'km)';
-
-      if (map) {
-        if (userMarker) map.removeLayer(userMarker);
-        if (userRadiusCircle) map.removeLayer(userRadiusCircle);
-
-        userRadiusCircle = L.circle([lat, lng], { radius: raioKm * 1000, color: '#0284c7', fillColor: '#38bdf8', fillOpacity: 0.12 }).addTo(map);
-        userMarker = L.marker([lat, lng], {
-          draggable: true,
-          icon: L.divIcon({ html: '<div style="width:20px;height:20px;background:#0284c7;border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 3px rgba(2,132,199,0.4);"></div>', iconSize: [24,24], iconAnchor: [12,12] })
-        }).addTo(map);
-
-        userMarker.on('dragend', function (e) {
-          var ll = e.target.getLatLng();
-          userLocation = { lat: ll.lat, lng: ll.lng };
-          if (userRadiusCircle) userRadiusCircle.setLatLng(userLocation);
-          filtrarClientes();
-        });
-
-        map.fitBounds(userRadiusCircle.getBounds().pad(0.08));
-      }
-      filtrarClientes();
-    }
 
     document.querySelectorAll('.jbm-raio-pill').forEach(function (p) {
       p.addEventListener('click', function () {
         document.querySelectorAll('.jbm-raio-pill').forEach(function (el) { el.classList.remove('ativo'); });
-        this.classList.add('ativo');
-        raioKm = Number(this.dataset.raio);
-        if (userRadiusCircle) userRadiusCircle.setRadius(raioKm * 1000);
-        filtrarClientes();
+        p.classList.add('ativo');
+        raioGpsAtivo = parseInt(p.dataset.raio, 10);
+        if (gpsAtivo) filtrarClientes();
       });
     });
 
-    // Sincronizar visitas reais com a base de dados
-    function sincronizarVisitasNoMapa() {
-      var visitas = estado.dados.visitas;
-      if (!visitas || !visitas.rows) return;
-      var cols = visitas.cols || [];
-      var iNif = cols.indexOf('nif');
-      var iDia = cols.indexOf('dia');
-      var iLoja = cols.indexOf('loja');
-
+    function calcularDistancias() {
+      if (!userLocation) return;
       clientes.forEach(function (c) {
-        var cNum = String(c.num).trim();
-        var visitasDoCliente = visitas.rows.filter(function (r) {
-          var rNif = String(r[iNif] || '').trim();
-          var rLoja = String(r[iLoja] || '').trim();
-          return rNif === cNum || rLoja.indexOf(cNum) >= 0;
-        });
-
-        if (visitasDoCliente.length > 0) {
-          visitasDoCliente.sort(function (a, b) {
-            var da = parseData(a[iDia]) || new Date(0);
-            var db = parseData(b[iDia]) || new Date(0);
-            return db.getTime() - da.getTime();
-          });
-          var ult = visitasDoCliente[0];
-          c.ultimaVisitaData = parseData(ult[iDia]);
-          c.ultimaVisitaFormatada = formatarDataPT(c.ultimaVisitaData);
-          c.totalVisitas = visitasDoCliente.length;
-          avaliarEstadoCliente(c);
-          c.ultimaVisitaTexto = 'Últ. Visita (' + c.ultimaVisitaFormatada + ') · ' + c.diasSemVisita + ' dias sem visitar';
-        }
+        if (!c.lat || !c.lng) return;
+        c.distanciaKm = map.distance(userLocation, [c.lat, c.lng]) / 1000;
       });
     }
 
-    // Modal Ficha
-    function abrirModal(c) {
-      clienteSelecionado = c;
+    var clienteModalAtivo = null;
+    var modalFicha = document.getElementById('jbm-modal');
+
+    function abrirFichaCliente(c) {
+      clienteModalAtivo = c;
       document.getElementById('modal-num').textContent = '#' + c.num;
       document.getElementById('modal-nome').textContent = c.nome;
       document.getElementById('modal-sub').textContent = c.localidade + ' · ' + c.morada;
@@ -1562,318 +1524,670 @@ var CLIENTES_BASE = [
       document.getElementById('modal-morada').value = c.morada;
       document.getElementById('modal-contacto').value = c.contacto || '';
       document.getElementById('modal-telefone').value = c.telefone || '';
+      document.getElementById('modal-dias').value = c.ultimaVisitaTexto;
       document.getElementById('modal-obs').value = c.obs || '';
-      document.getElementById('modal-dias').value = c.estadoLabel + ' · ' + c.diasSemVisita + ' dias sem visitar';
 
-      var dest = encodeURIComponent(c.nome + ', ' + c.morada + ', ' + c.localidade);
-      document.getElementById('modal-link-gmaps').href = 'https://www.google.com/maps/dir/?api=1&destination=' + dest;
-      document.getElementById('modal-link-waze').href = 'https://waze.com/ul?q=' + dest + '&navigate=yes';
+      document.getElementById('modal-link-gmaps').href = 'https://www.google.com/maps/dir/?api=1&destination=' + c.lat + ',' + c.lng;
+      document.getElementById('modal-link-waze').href = 'https://waze.com/ul?ll=' + c.lat + ',' + c.lng + '&navigate=yes';
 
-      document.getElementById('jbm-modal').classList.remove('jbp-hide');
+      var marcasArr = (c.marcas || '').split(',').map(function (m) { return m.trim(); });
+      document.querySelectorAll('#modal-marcas-grid .jbm-chip').forEach(function (chip) {
+        var inp = chip.querySelector('input');
+        var sel = marcasArr.indexOf(inp.value) >= 0;
+        inp.checked = sel;
+        chip.classList.toggle('checked', sel);
+      });
+
+      document.getElementById('modal-msg').textContent = '';
+      modalFicha.classList.remove('jbp-hide');
     }
 
-    document.getElementById('modal-btn-close').addEventListener('click', function () {
-      document.getElementById('jbm-modal').classList.add('jbp-hide');
-    });
+    document.getElementById('modal-btn-close').addEventListener('click', function () { modalFicha.classList.add('jbp-hide'); });
 
-    document.getElementById('modal-btn-salvar').addEventListener('click', function () {
-      if (!clienteSelecionado) return;
-      var btn = this;
-      btn.textContent = 'A guardar...';
-      clienteSelecionado.cor = document.getElementById('modal-cor').value;
-      clienteSelecionado.contacto = document.getElementById('modal-contacto').value.trim();
-      clienteSelecionado.telefone = document.getElementById('modal-telefone').value.trim();
-      clienteSelecionado.obs = document.getElementById('modal-obs').value.trim();
-
-      fetch('/api/salvar_cliente', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          num_cliente: clienteSelecionado.num,
-          cor: clienteSelecionado.cor,
-          contacto: clienteSelecionado.contacto,
-          telefone: clienteSelecionado.telefone,
-          obs: clienteSelecionado.obs
-        })
-      }).then(function () {
-        avaliarEstadoCliente(clienteSelecionado);
-        filtrarClientes();
-        document.getElementById('jbm-modal').classList.add('jbp-hide');
-      }).finally(function () {
-        btn.textContent = '💾 Guardar Alterações';
+    document.querySelectorAll('#modal-marcas-grid .jbm-chip').forEach(function (chip) {
+      chip.addEventListener('click', function (e) {
+        if (e.target.tagName !== 'INPUT') {
+          var inp = chip.querySelector('input');
+          inp.checked = !inp.checked;
+        }
+        chip.classList.toggle('checked', chip.querySelector('input').checked);
       });
     });
 
     document.getElementById('modal-btn-ir-visita').addEventListener('click', function () {
-      if (!clienteSelecionado) return;
-      document.getElementById('jbm-modal').classList.add('jbp-hide');
-      preencherFormularioVisita(clienteSelecionado);
+      if (!clienteModalAtivo) return;
+      modalFicha.classList.add('jbp-hide');
       document.querySelector('.jbp-nav-btn[data-tab="registos"]').click();
-      document.querySelector('.jbr-subtab[data-sub="visitas"]').click();
+      preencherFormularioVisita(clienteModalAtivo);
     });
 
-    // ==========================================
-    // 4. MÓDULO PLANEAR ROTA (OSRM TRIP)
-    // ==========================================
-    var rotaCandsSel = {};
-    document.getElementById('jbm-btn-abrir-rota').addEventListener('click', function () {
-      var origem = userLocation || { lat: 41.3540, lng: -8.7435 };
-      document.getElementById('jbm-rota-origem-txt').value = userLocation ? 'Localização GPS Atual' : 'Vila do Conde (Padrão)';
-      
-      var cands = clientes.filter(function (c) {
-        if (!c.lat || !c.lng) return false;
-        if (filtroCor === 'atraso') return c.estado === 'em-atraso';
-        if (filtroCor !== 'todas') return c.cor === filtroCor;
+    document.getElementById('modal-btn-salvar').addEventListener('click', function () {
+      if (!clienteModalAtivo) return;
+      var btn = this;
+      var msg = document.getElementById('modal-msg');
+      btn.disabled = true;
+      msg.textContent = 'A guardar...';
+      msg.style.color = 'var(--primary)';
+
+      var marcasSel = [];
+      document.querySelectorAll('#modal-marcas-grid input:checked').forEach(function (i) { marcasSel.push(i.value); });
+
+      var payload = {
+        num_cliente: clienteModalAtivo.num,
+        cor: document.getElementById('modal-cor').value,
+        contacto: document.getElementById('modal-contacto').value.trim(),
+        telefone: document.getElementById('modal-telefone').value.trim(),
+        marcas: marcasSel.join(', '),
+        obs: document.getElementById('modal-obs').value.trim()
+      };
+
+      fetch('/api/salvar_cliente', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) { return r.json(); })
+      .then(function () {
+        clienteModalAtivo.cor = payload.cor;
+        clienteModalAtivo.contacto = payload.contacto;
+        clienteModalAtivo.telefone = payload.telefone;
+        clienteModalAtivo.marcas = payload.marcas;
+        clienteModalAtivo.obs = payload.obs;
+        avaliarEstadoCliente(clienteModalAtivo);
+        atualizarContadores();
+        filtrarClientes();
+
+        msg.textContent = 'Alterações guardadas com sucesso!';
+        msg.style.color = '#15803d';
+        setTimeout(function () { modalFicha.classList.add('jbp-hide'); }, 1200);
+      })
+      .catch(function () {
+        msg.textContent = 'Erro ao guardar. Tente novamente.';
+        msg.style.color = '#b91c1c';
+      })
+      .finally(function () { btn.disabled = false; });
+    });
+
+    // ROTA
+    var modalRota = document.getElementById('jbm-modal-rota');
+    document.getElementById('jbm-btn-abrir-rota').addEventListener('click', function () { abrirModalRota(); });
+    document.getElementById('rota-btn-close').addEventListener('click', function () { modalRota.classList.add('jbp-hide'); });
+
+    function abrirModalRota() {
+      var cont = document.getElementById('rota-lista-clientes');
+      cont.innerHTML = '';
+      clientes.forEach(function (c) {
+        var row = document.createElement('label');
+        row.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px;border-bottom:1px solid #f1f5f9;font-size:12px;cursor:pointer;';
+        var chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.value = c.num;
+        chk.checked = rotaClientesSelecionados.has(c.num);
+        chk.addEventListener('change', function () {
+          if (chk.checked) rotaClientesSelecionados.add(c.num);
+          else rotaClientesSelecionados.delete(c.num);
+          atualizarResumoRota();
+        });
+        row.appendChild(chk);
+        row.appendChild(document.createTextNode('#' + c.num + ' - ' + c.nome + ' (' + c.localidade + ')'));
+        cont.appendChild(row);
+      });
+      atualizarResumoRota();
+      modalRota.classList.remove('jbp-hide');
+    }
+
+    function atualizarResumoRota() {
+      var n = rotaClientesSelecionados.size;
+      document.getElementById('rota-txt-resumo').textContent = n + ' cliente(s) selecionado(s)';
+      document.getElementById('rota-btn-calcular').disabled = n < 2;
+    }
+
+    document.getElementById('rota-selecionar-todos').addEventListener('click', function () {
+      document.querySelectorAll('#rota-lista-clientes input').forEach(function (i) {
+        i.checked = true;
+        rotaClientesSelecionados.add(i.value);
+      });
+      atualizarResumoRota();
+    });
+
+    document.getElementById('rota-limpar-selecao').addEventListener('click', function () {
+      document.querySelectorAll('#rota-lista-clientes input').forEach(function (i) { i.checked = false; });
+      rotaClientesSelecionados.clear();
+      atualizarResumoRota();
+    });
+
+    document.getElementById('rota-btn-calcular').addEventListener('click', function () {
+      var sel = clientes.filter(function (c) { return rotaClientesSelecionados.has(c.num); });
+      if (sel.length < 2) return;
+      var btn = this;
+      btn.disabled = true;
+      btn.textContent = 'A otimizar rota...';
+
+      var coordsStr = sel.map(function (c) { return c.lng + ',' + c.lat; }).join(';');
+      var urlOsrm = 'https://router.project-osrm.org/trip/v1/driving/' + coordsStr + '?source=first&destination=last&roundtrip=false&geometries=geojson&overview=full';
+
+      fetch(urlOsrm)
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res || !res.trips || !res.trips.length) throw new Error('Não foi possível calcular.');
+        var trip = res.trips[0];
+        var ordemWaypoints = res.waypoints.sort(function (a, b) { return a.waypoint_index - b.waypoint_index; });
+        var clientesOrdenados = ordemWaypoints.map(function (w) { return sel[w.waypoint_index]; });
+
+        rotaLayer.clearLayers();
+        var geojson = L.geoJSON(trip.geometry, { style: { color: '#1e3a8a', weight: 5, opacity: 0.85 } });
+        rotaLayer.addLayer(geojson);
+
+        clientesOrdenados.forEach(function (c, idx) {
+          var m = L.marker([c.lat, c.lng], {
+            icon: L.divIcon({
+              className: 'custom-rota',
+              html: '<div class="jbm-marker-rota">' + (idx + 1) + '</div>',
+              iconSize: [28, 28],
+              iconAnchor: [14, 14]
+            })
+          });
+          rotaLayer.addLayer(m);
+        });
+
+        map.fitBounds(geojson.getBounds(), { padding: [40, 40] });
+        var gmapsPoints = clientesOrdenados.map(function (c) { return c.lat + ',' + c.lng; });
+        document.getElementById('rota-link-gmaps').href = 'https://www.google.com/maps/dir/' + gmapsPoints.join('/');
+        document.getElementById('rota-links-nav').classList.remove('jbp-hide');
+        modalRota.classList.add('jbp-hide');
+      })
+      .catch(function (err) { alert('Erro ao calcular: ' + err.message); })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = '⚡ Calcular Rota';
+      });
+    });
+
+    document.getElementById('rota-btn-limpar-mapa').addEventListener('click', function () {
+      rotaLayer.clearLayers();
+      document.getElementById('rota-links-nav').classList.add('jbp-hide');
+      rotaClientesSelecionados.clear();
+      atualizarResumoRota();
+    });
+
+    // REGISTOS
+    function inicializarRegistos() {
+      document.querySelectorAll('#jbr-tabs button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('#jbr-tabs button').forEach(function (b) { b.classList.remove('active'); });
+          document.querySelectorAll('.jb-form').forEach(function (f) { f.classList.remove('active'); });
+          btn.classList.add('active');
+          var targetId = 'jb-form-' + btn.dataset.target;
+          var form = document.getElementById(targetId);
+          if (form) form.classList.add('active');
+        });
+      });
+
+      document.querySelectorAll('.jb-btn-agora').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetId = this.dataset.target;
+          var inp = document.getElementById(targetId);
+          if (inp) {
+            var agora = new Date();
+            var hh = ('0' + agora.getHours()).slice(-2);
+            var mm = ('0' + agora.getMinutes()).slice(-2);
+            inp.value = hh + ':' + mm;
+          }
+        });
+      });
+
+      var chipsMarcas = document.querySelectorAll('#jbr-wrap-marcas .jb-chip');
+      var hiddenQuais = document.getElementById('jbr-quais-marcas');
+      chipsMarcas.forEach(function (chip) {
+        chip.addEventListener('click', function (e) {
+          if (e.target.tagName !== 'INPUT') {
+            var inp = chip.querySelector('input');
+            inp.checked = !inp.checked;
+          }
+          chip.classList.toggle('checked', chip.querySelector('input').checked);
+          var sel = [];
+          document.querySelectorAll('#jbr-wrap-marcas input:checked').forEach(function (i) { sel.push(i.value); });
+          hiddenQuais.value = sel.join(', ');
+        });
+      });
+
+      var dl = document.getElementById('jbr-dl-clientes');
+      dl.innerHTML = '';
+      clientes.forEach(function (c) {
+        var opt = document.createElement('option');
+        opt.value = c.num + ' - ' + c.nome;
+        dl.appendChild(opt);
+      });
+
+      document.getElementById('jbr-busca-cliente').addEventListener('input', function () {
+        var val = this.value.trim();
+        var m = /^(\d+)/.exec(val);
+        if (m) {
+          for (var i = 0; i < clientes.length; i++) {
+            if (clientes[i].num === m[1]) {
+              preencherFormularioVisita(clientes[i]);
+              break;
+            }
+          }
+        }
+      });
+
+      var hojeIso = new Date().toISOString().slice(0, 10);
+      document.getElementById('jbr-dia').value = hojeIso;
+      document.getElementById('jbr-rota-data').value = hojeIso;
+
+      document.querySelectorAll('.jb-form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var tipo = form.dataset.tipo;
+          var btn = form.querySelector('button[type=submit]');
+          var msg = document.getElementById('jbr-msg-' + tipo);
+          btn.disabled = true;
+          btn.textContent = 'A enviar...';
+          msg.className = 'jb-msg';
+
+          var fd = new FormData(form);
+          fd.append('tipo', tipo);
+
+          var fich = form.querySelector('input[type=file]');
+          var preparar = (fich && fich.files[0])
+            ? comprimirFoto(fich.files[0]).then(function (b64) { fd.append('foto', b64); })
+            : Promise.resolve();
+
+          preparar.then(function () {
+            return fetch('/api/registar', { method: 'POST', body: fd });
+          })
+          .then(function (r) { return r.json(); })
+          .then(function () {
+            msg.textContent = 'Registo submetido com sucesso!';
+            msg.className = 'jb-msg ok';
+
+            if (tipo === 'visitas') {
+              var nifVal = form.querySelector('[name=nif]').value.trim();
+              for (var i = 0; i < clientes.length; i++) {
+                if (clientes[i].num === nifVal) {
+                  clientes[i].ultimaVisitaData = new Date();
+                  clientes[i].ultimaVisitaFormatada = formatarDataPT(new Date());
+                  avaliarEstadoCliente(clientes[i]);
+                  clientes[i].ultimaVisitaTexto = 'Últ. Visita (' + clientes[i].ultimaVisitaFormatada + ') · 0 dias sem visitar';
+                  atualizarContadores();
+                  filtrarClientes();
+                  break;
+                }
+              }
+            }
+
+            form.reset();
+            document.querySelectorAll('.jbp-field-comercial').forEach(function (inp) { inp.value = estado.nome; });
+            document.getElementById('jbr-dia').value = hojeIso;
+            document.getElementById('jbr-rota-data').value = hojeIso;
+            document.querySelectorAll('#jbr-wrap-marcas .jb-chip').forEach(function (ch) {
+              ch.classList.remove('checked');
+              ch.querySelector('input').checked = false;
+            });
+          })
+          .catch(function () {
+            msg.textContent = 'Erro ao enviar. Verifique a ligação.';
+            msg.className = 'jb-msg err';
+          })
+          .finally(function () {
+            btn.disabled = false;
+            btn.textContent = '📤 Submeter Registo';
+          });
+        });
+      });
+    }
+
+    function preencherFormularioVisita(c) {
+      document.getElementById('jbr-ja-cliente').value = 'Sim';
+      document.getElementById('jbr-nif').value = c.num || '';
+      document.getElementById('jbr-loja').value = c.nome || '';
+      document.getElementById('jbr-morada').value = c.morada || '';
+      document.getElementById('jbr-localidade').value = c.localidade || '';
+      document.getElementById('jbr-contacto').value = c.contacto || '';
+      document.getElementById('jbr-telefone').value = c.telefone || '';
+      document.getElementById('jbr-busca-cliente').value = c.num + ' - ' + c.nome;
+    }
+
+    function comprimirFoto(file) {
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        var url = URL.createObjectURL(file);
+        img.onload = function () {
+          var max = 1280;
+          var r = Math.min(1, max / Math.max(img.width, img.height));
+          var canvas = document.createElement('canvas');
+          canvas.width = Math.round(img.width * r);
+          canvas.height = Math.round(img.height * r);
+          canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+          URL.revokeObjectURL(url);
+          resolve(canvas.toDataURL('image/jpeg', 0.7).split(',')[1]);
+        };
+        img.onerror = function () { reject(new Error('Imagem inválida')); };
+        img.src = url;
+      });
+    }
+
+    // HISTÓRICO
+    var COLS_HIST = {
+      rotas: [['comercial','Comercial'],['data','Data'],['inicio','Início'],['paragens','Paragens intermédias'],['fim','Fim'],['observacoes','Observações'],['ts','Enviado em']],
+      visitas: [
+        ['comercial','Comercial'],
+        ['ja_cliente','Já é cliente?'],
+        ['nif','Nº Cliente'],
+        ['loja','Loja'],
+        ['morada','Morada'],
+        ['localidade','Localidade'],
+        ['contacto','Contacto'],
+        ['telefone','Telefone'],
+        ['dia','Data da Visita'],
+        ['entrada','Entrada'],
+        ['saida','Saída'],
+        ['duracao','Duração'],
+        ['nova_encomenda','Encomenda?'],
+        ['marca_nova','Marca nova?'],
+        ['quais_marcas','Quais marcas'],
+        ['observacoes','Observações'],
+        ['ts','Enviado em']
+      ],
+      abastecimentos: [['comercial','Comercial'],['km_antes','Km antes'],['valor','Valor (€)'],['foto_link','Foto'],['ts','Enviado em']]
+    };
+
+    var FILTROS_COLUNA_HIST = ['ja_cliente', 'nova_encomenda', 'marca_nova'];
+
+    function prepararItensHistorico() {
+      var res = { rotas: [], visitas: [], abastecimentos: [] };
+      ['rotas', 'visitas', 'abastecimentos'].forEach(function (tipo) {
+        var t = estado.dados[tipo] || { cols: [], rows: [] };
+        var cols = t.cols || [];
+        var rows = t.rows || [];
+        rows.forEach(function (r) {
+          var obj = {};
+          if (r.length > cols.length) obj['ts'] = r[0];
+          cols.forEach(function (col, idx) {
+            var valIdx = r.length > cols.length ? idx + 1 : idx;
+            obj[col] = r[valIdx] != null ? r[valIdx] : '';
+          });
+          if (tipo === 'visitas' && obj.entrada && obj.saida) {
+            var eM = parseMinutos(obj.entrada);
+            var sM = parseMinutos(obj.saida);
+            if (eM != null && sM != null && sM >= eM) {
+              var dur = sM - eM;
+              var h = Math.floor(dur / 60);
+              var m = dur % 60;
+              obj['duracao'] = (h > 0 ? h + 'h ' : '') + m + 'm';
+            }
+          }
+          res[tipo].push(obj);
+        });
+      });
+      return res;
+    }
+
+    function parseMinutos(s) {
+      var m = /(\d{1,2}):(\d{2})/.exec(String(s || ''));
+      return m ? (+m[1]) * 60 + (+m[2]) : null;
+    }
+
+    function inicializarHistorico() {
+      document.querySelectorAll('#jbh-tabs button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('#jbh-tabs button').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          estado.tipoHist = btn.dataset.tipo;
+          estado.filtrosColHist = {};
+          estado.limiteHist = 100;
+          renderizarHistorico();
+        });
+      });
+
+      function ativarBtnData(id) {
+        ['jbh-dt-hoje', 'jbh-dt-semana', 'jbh-dt-mes', 'jbh-dt-tudo'].forEach(function (bId) {
+          document.getElementById(bId).classList.toggle('active', bId === id);
+        });
+      }
+
+      document.getElementById('jbh-dt-hoje').addEventListener('click', function () {
+        var hoje = new Date().toISOString().slice(0, 10);
+        document.getElementById('jbh-de').value = hoje;
+        document.getElementById('jbh-ate').value = hoje;
+        ativarBtnData('jbh-dt-hoje');
+        renderizarHistorico();
+      });
+
+      document.getElementById('jbh-dt-semana').addEventListener('click', function () {
+        var hoje = new Date();
+        var diaSem = hoje.getDay() || 7;
+        var seg = new Date(hoje);
+        seg.setDate(hoje.getDate() - diaSem + 1);
+        document.getElementById('jbh-de').value = seg.toISOString().slice(0, 10);
+        document.getElementById('jbh-ate').value = hoje.toISOString().slice(0, 10);
+        ativarBtnData('jbh-dt-semana');
+        renderizarHistorico();
+      });
+
+      document.getElementById('jbh-dt-mes').addEventListener('click', function () {
+        var hoje = new Date();
+        var pri = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
+        document.getElementById('jbh-de').value = pri.toISOString().slice(0, 10);
+        document.getElementById('jbh-ate').value = hoje.toISOString().slice(0, 10);
+        ativarBtnData('jbh-dt-mes');
+        renderizarHistorico();
+      });
+
+      document.getElementById('jbh-dt-tudo').addEventListener('click', function () {
+        document.getElementById('jbh-de').value = '';
+        document.getElementById('jbh-ate').value = '';
+        ativarBtnData('jbh-dt-tudo');
+        renderizarHistorico();
+      });
+
+      document.getElementById('jbh-dt-limpar').addEventListener('click', function () {
+        document.getElementById('jbh-q').value = '';
+        document.getElementById('jbh-de').value = '';
+        document.getElementById('jbh-ate').value = '';
+        if (document.getElementById('jbh-sel-com')) document.getElementById('jbh-sel-com').value = '';
+        estado.filtrosColHist = {};
+        ativarBtnData('jbh-dt-tudo');
+        renderizarHistorico();
+      });
+
+      ['jbh-q', 'jbh-de', 'jbh-ate', 'jbh-sel-com'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', function () { renderizarHistorico(); });
+          el.addEventListener('change', function () { renderizarHistorico(); });
+        }
+      });
+
+      document.getElementById('jbh-btn-imprimir').addEventListener('click', function () { window.print(); });
+
+      document.getElementById('jbh-btn-atualizar').addEventListener('click', function () {
+        var btn = this;
+        btn.disabled = true;
+        btn.textContent = 'A sincronizar...';
+        tentarLogin(estado.codigo, true);
+        setTimeout(function () { btn.disabled = false; btn.textContent = '🔄 Atualizar'; }, 1500);
+      });
+
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.jbh-filter-drop.open').forEach(function (d) { d.classList.remove('open'); });
+      });
+
+      renderizarHistorico();
+    }
+
+    function renderizarHistorico() {
+      var itensMap = prepararItensHistorico();
+      var lista = itensMap[estado.tipoHist] || [];
+
+      var q = (document.getElementById('jbh-q').value || '').toLowerCase().trim();
+      var de = document.getElementById('jbh-de').value;
+      var ate = document.getElementById('jbh-ate').value;
+      var comSel = document.getElementById('jbh-sel-com') ? document.getElementById('jbh-sel-com').value : '';
+
+      var filtrados = lista.filter(function (o) {
+        var com = o.comercial || '';
+        if (estado.perfil !== 'admin' && com !== estado.nome) return false;
+        if (comSel && com !== comSel) return false;
+
+        var dt = o.dia || o.data || (o.ts ? o.ts.slice(0, 10) : '');
+        if (de && dt && dt < de) return false;
+        if (ate && dt && dt > ate) return false;
+
+        if (q) {
+          var match = false;
+          for (var k in o) {
+            if (String(o[k]).toLowerCase().indexOf(q) >= 0) { match = true; break; }
+          }
+          if (!match) return false;
+        }
+
+        if (estado.tipoHist === 'visitas' && estado.filtrosColHist) {
+          for (var colKey in estado.filtrosColHist) {
+            var valExp = estado.filtrosColHist[colKey];
+            if (valExp && o[colKey] !== valExp) return false;
+          }
+        }
+
         return true;
       });
 
-      var cont = document.getElementById('jbm-rota-cand-list');
-      cont.innerHTML = '';
-      document.getElementById('jbm-rota-cand-count').textContent = cands.length;
-
-      cands.forEach(function (c) {
-        rotaCandsSel[c.num] = true;
-        var row = document.createElement('label');
-        row.style.display = 'flex';
-        row.style.alignItems = 'center';
-        row.style.gap = '8px';
-        row.style.fontSize = '12px';
-        row.innerHTML = '<input type="checkbox" checked data-num="' + c.num + '"> <span><strong>#' + c.num + ' ' + c.nome + '</strong> (' + c.localidade + ') - ' + c.estadoLabel + '</span>';
-        row.querySelector('input').onchange = function () { rotaCandsSel[c.num] = this.checked; };
-        cont.appendChild(row);
-      });
-
-      document.getElementById('jbm-rota-modal-overlay').classList.remove('jbp-hide');
-    });
-
-    document.getElementById('jbm-rota-btn-close').addEventListener('click', function () {
-      document.getElementById('jbm-rota-modal-overlay').classList.add('jbp-hide');
-    });
-
-    document.getElementById('jbm-rota-btn-calcular').addEventListener('click', function () {
-      var btn = this;
-      var maxP = Number(document.getElementById('jbm-rota-max-paragens').value) || 8;
-      var cands = clientes.filter(function (c) { return rotaCandsSel[c.num]; });
-      if (!cands.length) return alert('Selecione pelo menos um cliente!');
-
-      var origem = userLocation || { lat: 41.3540, lng: -8.7435 };
-      
-      // Ordenação por prioridade
-      cands.sort(function (a, b) {
-        var sA = (a.estado === 'em-atraso' ? 3 : 1) - calcDistancia(origem.lat, origem.lng, a.lat, a.lng) * 0.05;
-        var sB = (b.estado === 'em-atraso' ? 3 : 1) - calcDistancia(origem.lat, origem.lng, b.lat, b.lng) * 0.05;
-        return sB - sA;
-      });
-
-      var escolhidos = cands.slice(0, maxP);
-      var fora = cands.slice(maxP);
-
-      btn.textContent = 'A traçar melhor caminho...';
-      btn.disabled = true;
-
-      var coords = [origem.lng.toFixed(5) + ',' + origem.lat.toFixed(5)];
-      escolhidos.forEach(function (p) { coords.push(p.lng.toFixed(5) + ',' + p.lat.toFixed(5)); });
-
-      var url = 'https://router.project-osrm.org/trip/v1/driving/' + coords.join(';') + '?source=first&destination=last&roundtrip=false&geometries=geojson&overview=full';
-
-      fetch(url)
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          if (!data || data.code !== 'Ok') throw new Error('Falha OSRM');
-          var trip = data.trips[0];
-          
-          document.getElementById('jbm-rota-resultados').classList.remove('jbp-hide');
-          document.getElementById('jbm-rota-total-dist').textContent = (trip.distance / 1000).toFixed(1) + ' km';
-          document.getElementById('jbm-rota-total-tempo').textContent = Math.round(trip.duration / 60) + ' min';
-          document.getElementById('jbm-rota-num-paragens-txt').textContent = escolhidos.length + ' paragens ordenadas por estrada';
-
-          if (fora.length) {
-            document.getElementById('jbm-rota-fora-wrap').classList.remove('jbp-hide');
-            document.getElementById('jbm-rota-fora-nomes').textContent = fora.map(function (f) { return '#' + f.num + ' ' + f.nome; }).join(', ');
-          }
-
-          // Traçar no Mapa
-          if (rotaLinhaLayer) map.removeLayer(rotaLinhaLayer);
-          rotaMarcadoresGroup.clearLayers();
-
-          var latlngs = trip.geometry.coordinates.map(function (c) { return [c[1], c[0]]; });
-          rotaLinhaLayer = L.polyline(latlngs, { color: '#1e3a8a', weight: 5, opacity: 0.85 }).addTo(map);
-          map.fitBounds(rotaLinhaLayer.getBounds().pad(0.1));
-
-          escolhidos.forEach(function (c, idx) {
-            L.marker([c.lat, c.lng], {
-              icon: L.divIcon({ html: '<div class="jbm-marker-rota">' + (idx + 1) + '</div>', iconSize: [28,28], iconAnchor: [14,14] })
-            }).bindPopup('<strong>Paragem ' + (idx+1) + ': ' + c.nome + '</strong><br>' + c.morada).addTo(rotaMarcadoresGroup);
-          });
-
-          // Preencher lista do resultado
-          var listaCont = document.getElementById('jbm-rota-paragens-lista');
-          listaCont.innerHTML = '';
-          escolhidos.forEach(function (c, idx) {
-            var item = document.createElement('div');
-            item.style.padding = '6px';
-            item.style.background = '#f8fafc';
-            item.style.border = '1px solid #e2e8f0';
-            item.style.borderRadius = '5px';
-            item.style.fontSize = '12px';
-            item.innerHTML = '<strong>' + (idx+1) + '. ' + c.nome + '</strong> (#' + c.num + ' - ' + c.localidade + ')';
-            listaCont.appendChild(item);
-          });
-
-          // Link Google Maps
-          var wpStr = escolhidos.slice(0, -1).map(function (p) { return p.lat.toFixed(5) + ',' + p.lng.toFixed(5); }).join('|');
-          var destUlt = escolhidos[escolhidos.length - 1];
-          var gmapsUrl = 'https://www.google.com/maps/dir/?api=1&origin=' + origem.lat.toFixed(5) + ',' + origem.lng.toFixed(5) +
-            '&destination=' + destUlt.lat.toFixed(5) + ',' + destUlt.lng.toFixed(5) + (wpStr ? ('&waypoints=' + encodeURIComponent(wpStr)) : '');
-          document.getElementById('jbm-rota-link-gmaps').href = gmapsUrl;
-
-          // Link Waze 1ª Paragem
-          document.getElementById('jbm-rota-link-waze').href = 'https://waze.com/ul?ll=' + escolhidos[0].lat + ',' + escolhidos[0].lng + '&navigate=yes';
-        })
-        .finally(function () {
-          btn.textContent = '🚀 Recalcular Rota';
-          btn.disabled = false;
-        });
-    });
-
-    // ==========================================
-    // 5. MÓDULO REGISTOS DE ATIVIDADE
-    // ==========================================
-    document.querySelectorAll('.jbr-subtab').forEach(function (t) {
-      t.addEventListener('click', function () {
-        document.querySelectorAll('.jbr-subtab').forEach(function (el) { el.classList.remove('active'); });
-        document.querySelectorAll('.jbr-form').forEach(function (el) { el.classList.remove('active'); });
-        t.classList.add('active');
-        document.getElementById('jbr-form-' + t.dataset.sub).classList.add('active');
-      });
-    });
-
-    // Datalist de Clientes
-    var dl = document.getElementById('jbr-dl-clientes');
-    clientes.forEach(function (c) {
-      var opt = document.createElement('option');
-      opt.value = c.num + ' - ' + c.nome;
-      dl.appendChild(opt);
-    });
-
-    function preencherFormularioVisita(c) {
-      document.getElementById('jbr-visita-nif').value = c.num || '';
-      document.getElementById('jbr-visita-loja').value = c.nome || '';
-      document.getElementById('jbr-visita-morada').value = c.morada || '';
-      document.getElementById('jbr-visita-localidade').value = c.localidade || '';
-      document.getElementById('jbr-visita-contacto').value = c.contacto || '';
-      document.getElementById('jbr-visita-telefone').value = c.telefone || '';
-      document.getElementById('jbr-visita-busca').value = c.num + ' - ' + c.nome;
+      renderizarKpis(filtrados);
+      renderizarTabelaHistorico(filtrados);
     }
 
-    document.getElementById('jbr-visita-busca').addEventListener('input', function () {
-      var val = this.value.trim();
-      var m = /^(\d+)/.exec(val);
-      if (m) {
-        for (var i = 0; i < clientes.length; i++) {
-          if (clientes[i].num === m[1]) { preencherFormularioVisita(clientes[i]); break; }
-        }
-      }
-    });
+    function renderizarKpis(lista) {
+      var cont = document.getElementById('jbh-kpis');
+      cont.innerHTML = '';
+      var tipo = estado.tipoHist;
 
-    // Definir data de hoje
-    var hojeIso = new Date().toISOString().slice(0, 10);
-    document.querySelectorAll('input[type=date]').forEach(function (inp) { inp.value = hojeIso; });
-
-    // Submissão de Formulários
-    document.querySelectorAll('.jbr-form').forEach(function (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = form.querySelector('button[type=submit]');
-        var msg = form.querySelector('.jbr-msg');
-        btn.disabled = true;
-        btn.textContent = 'A enviar...';
-        msg.className = 'jbr-msg';
-
-        var fd = new FormData(form);
-        fd.append('tipo', form.dataset.tipo);
-
-        fetch('/api/registar', {
-          method: 'POST',
-          body: fd
-        })
-        .then(function (r) { return r.json(); })
-        .then(function () {
-          msg.textContent = 'Registo submetido com sucesso!';
-          msg.className = 'jbr-msg ok';
-
-          // Se for visita, abater imediatamente no mapa
-          if (form.dataset.tipo === 'visitas') {
-            var nif = form.querySelector('[name=nif]').value.trim();
-            for (var i = 0; i < clientes.length; i++) {
-              if (clientes[i].num === nif) {
-                clientes[i].ultimaVisitaData = new Date();
-                clientes[i].ultimaVisitaFormatada = formatarDataPT(new Date());
-                avaliarEstadoCliente(clientes[i]);
-                clientes[i].ultimaVisitaTexto = 'Últ. Visita (' + clientes[i].ultimaVisitaFormatada + ') · 0 dias sem visitar';
-                filtrarClientes();
-                break;
-              }
-            }
-          }
-          form.reset();
-          document.querySelectorAll('.jbp-field-comercial').forEach(function (inp) { inp.value = estado.nome; });
-        })
-        .catch(function () {
-          msg.textContent = 'Erro ao enviar. Verifique a ligação.';
-          msg.className = 'jbr-msg err';
-        })
-        .finally(function () {
-          btn.disabled = false;
-          btn.textContent = '📤 Submeter Registo';
+      if (tipo === 'abastecimentos') {
+        var totalEuros = 0;
+        lista.forEach(function (o) {
+          var n = parseFloat(String(o.valor).replace(',', '.'));
+          if (!isNaN(n)) totalEuros += n;
         });
-      });
-    });
+        var media = lista.length ? (totalEuros / lista.length) : 0;
+        cont.innerHTML = 
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Total Abastecimentos</div><div class="jbh-kpi-val">' + lista.length + '</div></div>' +
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Despesa Total</div><div class="jbh-kpi-val">' + totalEuros.toFixed(2) + ' €</div></div>' +
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Média por Depósito</div><div class="jbh-kpi-val">' + media.toFixed(2) + ' €</div></div>';
+      } else if (tipo === 'visitas') {
+        var habituais = 0;
+        var marcasNovas = 0;
+        var encomendas = 0;
+        lista.forEach(function (o) {
+          if (o.ja_cliente === 'Sim') habituais++;
+          if (o.marca_nova === 'Sim') marcasNovas++;
+          if (o.nova_encomenda === 'Sim') encomendas++;
+        });
+        cont.innerHTML = 
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Total Visitas</div><div class="jbh-kpi-val">' + lista.length + '</div></div>' +
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Clientes Habituais</div><div class="jbh-kpi-val">' + habituais + '</div></div>' +
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Marcas Novas Vendidas</div><div class="jbh-kpi-val" style="color:#15803d">' + marcasNovas + '</div></div>' +
+          '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Encomendas</div><div class="jbh-kpi-val" style="color:#1a3d6d">' + encomendas + '</div></div>';
+      } else if (tipo === 'rotas') {
+        cont.innerHTML = '<div class="jbh-kpi-card"><div class="jbh-kpi-label">Total de Rotas</div><div class="jbh-kpi-val">' + lista.length + '</div></div>';
+      }
+    }
 
-    // ==========================================
-    // 6. MÓDULO HISTÓRICO
-    // ==========================================
-    var histTipoAtivo = 'visitas';
+    function renderizarTabelaHistorico(lista) {
+      var cont = document.getElementById('jbh-tabela');
+      cont.innerHTML = '';
+      document.getElementById('jbh-info').textContent = 'A mostrar ' + lista.length + ' registo(s) ordenados por data';
 
-    function renderHistorico(tipo) {
-      histTipoAtivo = tipo;
-      var cont = document.getElementById('jbh-table-cont');
-      var source = estado.dados[tipo] || { cols: [], rows: [] };
-      var filterCom = document.getElementById('jbh-sel-comercial').value;
-      var iCom = source.cols.indexOf('comercial');
-
-      var rows = (source.rows || []).filter(function (r) {
-        return !filterCom || (iCom >= 0 && r[iCom] === filterCom);
-      });
-
-      document.getElementById('jbh-summary-txt').textContent = rows.length + ' registo(s) de ' + tipo.toUpperCase();
-
-      if (!rows.length) {
-        cont.innerHTML = '<p style="padding:15px;color:var(--muted);font-size:13px;">Sem registos disponíveis.</p>';
+      if (!lista.length) {
+        cont.innerHTML = '<p class="jbh-vazio">Nenhum registo encontrado com os filtros atuais.</p>';
         return;
       }
 
-      var headers = ['Data/Hora'].concat(source.cols);
-      var html = '<table><thead><tr>' + headers.map(function (h) { return '<th>' + h + '</th>'; }).join('') + '</tr></thead><tbody>';
+      var cols = COLS_HIST[estado.tipoHist] || [];
+      var table = document.createElement('table');
+      table.className = 'jbh-table';
 
-      rows.forEach(function (r) {
-        html += '<tr>' + r.map(function (v) { return '<td>' + (v || '') + '</td>'; }).join('') + '</tr>';
+      var thead = document.createElement('thead');
+      var trh = document.createElement('tr');
+
+      cols.forEach(function (c) {
+        var th = document.createElement('th');
+        var colKey = c[0];
+        var colLabel = c[1];
+        th.textContent = colLabel;
+
+        if (estado.tipoHist === 'visitas' && FILTROS_COLUNA_HIST.indexOf(colKey) >= 0) {
+          th.className = 'jbh-th-filter';
+          if (estado.filtrosColHist[colKey]) th.classList.add('jbh-filtered');
+
+          var drop = document.createElement('div');
+          drop.className = 'jbh-filter-drop';
+          var optTodos = document.createElement('div');
+          optTodos.className = 'jbh-filter-opt' + (!estado.filtrosColHist[colKey] ? ' active' : '');
+          optTodos.textContent = 'Todos';
+          optTodos.onclick = function (e) {
+            e.stopPropagation();
+            delete estado.filtrosColHist[colKey];
+            renderizarHistorico();
+          };
+          drop.appendChild(optTodos);
+
+          ['Sim', 'Não'].forEach(function (v) {
+            var opt = document.createElement('div');
+            opt.className = 'jbh-filter-opt' + (estado.filtrosColHist[colKey] === v ? ' active' : '');
+            opt.textContent = v;
+            opt.onclick = function (e) {
+              e.stopPropagation();
+              estado.filtrosColHist[colKey] = v;
+              renderizarHistorico();
+            };
+            drop.appendChild(opt);
+          });
+
+          th.appendChild(drop);
+          th.onclick = function (e) {
+            e.stopPropagation();
+            var estaAberto = drop.classList.contains('open');
+            document.querySelectorAll('.jbh-filter-drop.open').forEach(function (d) { d.classList.remove('open'); });
+            if (!estaAberto) drop.classList.add('open');
+          };
+        }
+
+        trh.appendChild(th);
       });
+      thead.appendChild(trh);
+      table.appendChild(thead);
 
-      html += '</tbody></table>';
-      cont.innerHTML = html;
+      var tbody = document.createElement('tbody');
+      lista.slice(0, estado.limiteHist).forEach(function (item) {
+        var tr = document.createElement('tr');
+        cols.forEach(function (c) {
+          var td = document.createElement('td');
+          var colKey = c[0];
+          var val = item[colKey] != null ? item[colKey] : '';
+
+          if (colKey === 'nova_encomenda' || colKey === 'marca_nova' || colKey === 'ja_cliente') {
+            if (val === 'Sim') td.innerHTML = '<span class="jbh-badge sim">Sim</span>';
+            else if (val === 'Não') td.innerHTML = '<span class="jbh-badge nao">Não</span>';
+            else td.textContent = val || '—';
+          } else if (colKey === 'foto_link' && val) {
+            td.innerHTML = '<a href="' + val + '" target="_blank" style="color:var(--primary);font-weight:700;">Ver Foto</a>';
+          } else if (colKey === 'observacoes') {
+            td.className = 'jbh-obs';
+            td.textContent = val || '—';
+          } else {
+            td.textContent = val === '' ? '—' : val;
+          }
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      cont.appendChild(table);
     }
 
-    document.querySelectorAll('#jbh-tipo-btns button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        document.querySelectorAll('#jbh-tipo-btns button').forEach(function (el) { el.classList.remove('active'); });
-        b.classList.add('active');
-        renderHistorico(b.dataset.htipo);
-      });
-    });
-
     function preencherFiltroComerciaisAdmin() {
-      var sel = document.getElementById('jbh-sel-comercial');
+      var sel = document.getElementById('jbh-sel-com');
+      if (!sel) return;
       var nomes = new Set();
       Object.values(estado.dados).forEach(function (t) {
         var idx = (t.cols || []).indexOf('comercial');
@@ -1884,7 +2198,6 @@ var CLIENTES_BASE = [
         opt.value = opt.textContent = nome;
         sel.appendChild(opt);
       });
-      sel.onchange = function () { renderHistorico(histTipoAtivo); };
     }
 
   })();
