@@ -1,6 +1,6 @@
 /**
- * JB Comercio Global - Portal Comercial Completo Duda Fidelidade
- * Build: 20261113-1638
+ * JB Comercio Global - Portal Comercial Pro com Cockpit
+ * Build: 20261113-1711
  */
 
 const GAS = "https://script.google.com/macros/s/AKfycbyRRNRjuLsVJCzxga-CXPH_tMfBDLJubenFHDydu9ySTf4wf_B42jtzn7YJXYCFVbwx/exec";
@@ -53,7 +53,7 @@ const APP_HTML = `<!doctype html>
     }
     .jbp-hide { display: none !important; }
 
-    /* Ecr\u00E3 de Login */
+    /* Login */
     .jbp-login-wrap {
       min-height: 100vh;
       display: flex;
@@ -131,7 +131,7 @@ const APP_HTML = `<!doctype html>
       font-weight: 600;
     }
 
-    /* Layout da Aplica\u00E7\u00E3o Autenticada */
+    /* Layout da Aplica\u00E7\u00E3o */
     .jbp-app {
       display: flex;
       flex-direction: column;
@@ -221,7 +221,95 @@ const APP_HTML = `<!doctype html>
     .jbp-panel { display: none; }
     .jbp-panel.active { display: flex; flex-direction: column; gap: 12px; }
 
-    /* Estilos do Mapa & CRM */
+    /* ========================================================== */
+    /* 0. PAINEL INTELIGENTE & COCKPIT INICIAL                    */
+    /* ========================================================== */
+    .cockpit-banner {
+      background: linear-gradient(135deg, #1a3d6d 0%, #0f2746 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(26,61,109,.2);
+    }
+    .cockpit-banner h2 { margin: 0 0 4px; font-size: 20px; font-weight: 800; letter-spacing: -.2px; }
+    .cockpit-banner p { margin: 0; font-size: 13px; color: #cbd5e1; }
+    .cockpit-cta-btn {
+      background: #f59e0b;
+      color: #0f172a;
+      border: 0;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(245,158,11,.3);
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .cockpit-cta-btn:hover { background: #d97706; transform: translateY(-1px); }
+
+    .cockpit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .cockpit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    }
+    .cockpit-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cockpit-card-val {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .cockpit-card-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .cockpit-sugestao-box {
+      background: #fff;
+      border: 1px solid #fed7aa;
+      border-left: 6px solid #f97316;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .cockpit-sugestao-info h3 { margin: 0 0 4px; font-size: 15px; color: #9a3412; font-weight: 700; }
+    .cockpit-sugestao-info p { margin: 0; font-size: 13px; color: #475569; }
+
+    /* ========================================================== */
+    /* 1. MAPA & CRM                                              */
+    /* ========================================================== */
     .jbm-bar {
       background: #fff;
       border: 1px solid var(--border);
@@ -471,7 +559,9 @@ const APP_HTML = `<!doctype html>
     .jbm-chip.checked { background: var(--primary); color: #fff; font-weight: 600; }
     .jbm-chip input { display: none; }
 
-    /* Estilos de Registos Duda */
+    /* ========================================================== */
+    /* 2. REGISTOS (REGRAS DIN\u00C2MICAS ESTRITAS DA DUDA)           */
+    /* ========================================================== */
     .jb-wrap {
       max-width: 760px;
       margin: 0 auto;
@@ -518,7 +608,9 @@ const APP_HTML = `<!doctype html>
     .jb-msg.ok { display: block; background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
     .jb-msg.err { display: block; background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
 
-    /* Estilos do Hist\u00F3rico Duda */
+    /* ========================================================== */
+    /* 3. HIST\u00D3RICO COM DASHBOARD & KPIs                          */
+    /* ========================================================== */
     .jbh-wrap {
       width: 100% !important;
       max-width: 1750px;
@@ -655,7 +747,8 @@ const APP_HTML = `<!doctype html>
       </div>
 
       <nav class="jbp-nav">
-        <button type="button" class="jbp-nav-btn active" data-tab="mapa">\uD83D\uDDFA\uFE0F Mapa de Clientes</button>
+        <button type="button" class="jbp-nav-btn active" data-tab="painel">\u26A1 Cockpit / In\u00EDcio</button>
+        <button type="button" class="jbp-nav-btn" data-tab="mapa">\uD83D\uDDFA\uFE0F Mapa de Clientes</button>
         <button type="button" class="jbp-nav-btn" data-tab="registos">\uD83D\uDCDD Registar Atividade</button>
         <button type="button" class="jbp-nav-btn" data-tab="historico">\uD83D\uDCCA Hist\u00F3rico & Dashboard</button>
       </nav>
@@ -666,8 +759,67 @@ const APP_HTML = `<!doctype html>
       </div>
     </header>
 
+    <!-- ABA 0: PAINEL INTELIGENTE / COCKPIT -->
+    <section class="jbp-panel active" id="jbp-panel-painel">
+      <div class="cockpit-banner">
+        <div>
+          <h2 id="cockpit-ola">Ol\u00E1, Comercial! \uD83D\uDC4B</h2>
+          <p id="cockpit-sub-ola">Aqui est\u00E1 o teu assistente de visitas e controlo de objetivos em tempo real.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="cockpit-cta-btn" id="cockpit-btn-rota-sugerida">\uD83D\uDE97 Ver Rota Sugerida de Hoje</button>
+          <button type="button" class="jbp-nav-btn" id="cockpit-btn-visita-proxima" style="background:#fff;font-weight:700;">\uD83D\uDCCD Visitar Mais Pr\u00F3ximo</button>
+        </div>
+      </div>
+
+      <!-- Caixa de Sugest\u00E3o Inteligente de Rota -->
+      <div class="cockpit-sugestao-box" id="cockpit-box-sugestao">
+        <div class="cockpit-sugestao-info">
+          <h3 id="cockpit-sugestao-titulo">\uD83D\uDCA1 Sugest\u00E3o de Rota Priorit\u00E1ria</h3>
+          <p id="cockpit-sugestao-txt">Identific\u00E1mos clientes com prazo de visita vencido que deves contactar hoje.</p>
+        </div>
+        <button type="button" class="jbm-btn-rota-top" id="cockpit-btn-aplicar-rota">\u26A1 Tra\u00E7ar Rota no Mapa</button>
+      </div>
+
+      <!-- M\u00E9tricas / Cockpit Cards -->
+      <div class="cockpit-grid">
+        <div class="cockpit-card">
+          <div class="cockpit-card-title">\uD83D\uDEA8 Visitas em Atraso <span style="color:#dc2626;">Cr\u00EDtico</span></div>
+          <div class="cockpit-card-val" id="cockpit-val-atraso" style="color:#dc2626;">0</div>
+          <div class="cockpit-card-sub">Lojas que ultrapassaram o ciclo regular (30/45/60d)</div>
+        </div>
+
+        <div class="cockpit-card">
+          <div class="cockpit-card-title">\u23F3 A Vencer esta Semana <span style="color:#d97706;">Aten\u00E7\u00E3o</span></div>
+          <div class="cockpit-card-val" id="cockpit-val-vencer" style="color:#d97706;">0</div>
+          <div class="cockpit-card-sub">Lojas no limite da janela de visita recomendada</div>
+        </div>
+
+        <div class="cockpit-card">
+          <div class="cockpit-card-title">\uD83D\uDFE2 Clientes em Dia <span style="color:#16a34a;">Saud\u00E1vel</span></div>
+          <div class="cockpit-card-val" id="cockpit-val-dia" style="color:#16a34a;">0</div>
+          <div class="cockpit-card-sub">Lojas com relacionamento ativo e visitas recentes</div>
+        </div>
+
+        <div class="cockpit-card">
+          <div class="cockpit-card-title">\uD83D\uDCE6 Total de Encomendas <span style="color:#1a3d6d;">Neg\u00F3cio</span></div>
+          <div class="cockpit-card-val" id="cockpit-val-encomendas">0</div>
+          <div class="cockpit-card-sub">Novas encomendas reportadas nos registos</div>
+        </div>
+      </div>
+
+      <!-- Bloco de Clientes que Precisam de Aten\u00E7\u00E3o Urgente -->
+      <div class="jbm-sidebar-header" style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;">
+        <div class="jbm-sidebar-header-row" style="margin-bottom:10px;">
+          <strong style="font-size:14px;color:var(--primary);">\uD83C\uDFAF Lojas Priorit\u00E1rias Recomendadas para Hoje</strong>
+          <span style="font-size:12px;color:var(--muted);">Ordenadas por urg\u00EAncia e dias sem visita</span>
+        </div>
+        <div id="cockpit-lista-urgentes" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:10px;"></div>
+      </div>
+    </section>
+
     <!-- ABA 1: MAPA & CRM COMERCIAL -->
-    <section class="jbp-panel active" id="jbp-panel-mapa">
+    <section class="jbp-panel" id="jbp-panel-mapa">
       <div class="jbm-bar">
         <div class="jbm-search">
           <input type="text" id="jbm-busca" placeholder="Procurar cliente, numero ou localidade...">
@@ -716,7 +868,7 @@ const APP_HTML = `<!doctype html>
       </main>
     </section>
 
-    <!-- ABA 2: REGISTAR ATIVIDADE (100% FIEL \u00C0 DUDA) -->
+    <!-- ABA 2: REGISTAR ATIVIDADE (REGRAS DIN\u00C2MICAS DUDA) -->
     <section class="jbp-panel" id="jbp-panel-registos">
       <div class="jb-wrap">
         <div class="jb-header">
@@ -736,6 +888,7 @@ const APP_HTML = `<!doctype html>
         <!-- FORMUL\u00C1RIO 1: VISITAS -->
         <form class="jb-form active" id="jb-form-visitas" data-tipo="visitas">
           <input type="hidden" name="comercial" class="jbp-field-comercial">
+          
           <div class="jb-row">
             <label>J\u00E1 \u00E9 cliente?
               <select name="ja_cliente" id="jbr-ja-cliente">
@@ -743,6 +896,7 @@ const APP_HTML = `<!doctype html>
                 <option value="N\u00E3o">N\u00E3o (Potencial cliente)</option>
               </select>
             </label>
+            <!-- Vis\u00EDvel se Sim -->
             <label id="jbr-wrap-busca">Pesquisar / Selecionar Loja
               <input type="text" id="jbr-busca-cliente" list="jbr-dl-clientes" placeholder="N\u00BA ou nome da loja...">
               <datalist id="jbr-dl-clientes"></datalist>
@@ -750,29 +904,30 @@ const APP_HTML = `<!doctype html>
           </div>
 
           <div class="jb-row">
+            <!-- N\u00BA do Cliente s\u00F3 \u00E9 exibido se J\u00E1 \u00E9 Cliente = Sim -->
             <label id="jbr-wrap-nif">N\u00BA do Cliente
-              <input type="text" name="nif" id="jbr-nif" required>
+              <input type="text" name="nif" id="jbr-nif" required placeholder="Preenchido ao pesquisar">
             </label>
-            <label>Nome da Loja
-              <input type="text" name="loja" id="jbr-loja" required>
+            <label id="jbr-wrap-loja">Nome da Loja
+              <input type="text" name="loja" id="jbr-loja" required placeholder="Nome da loja">
             </label>
           </div>
 
           <div class="jb-row">
             <label>Morada
-              <input type="text" name="morada" id="jbr-morada" required>
+              <input type="text" name="morada" id="jbr-morada" required placeholder="Morada da loja">
             </label>
             <label>Localidade
-              <input type="text" name="localidade" id="jbr-localidade" required>
+              <input type="text" name="localidade" id="jbr-localidade" required placeholder="Localidade">
             </label>
           </div>
 
           <div class="jb-row">
             <label>Pessoa de Contacto
-              <input type="text" name="contacto" id="jbr-contacto" required>
+              <input type="text" name="contacto" id="jbr-contacto" required placeholder="Nome do respons\u00E1vel">
             </label>
             <label>Telefone
-              <input type="tel" name="telefone" id="jbr-telefone">
+              <input type="tel" name="telefone" id="jbr-telefone" placeholder="Telefone ou telem\u00F3vel">
             </label>
           </div>
 
@@ -795,8 +950,9 @@ const APP_HTML = `<!doctype html>
           </div>
 
           <div class="jb-row">
-            <label>Efetuou Nova Encomenda?
-              <select name="nova_encomenda">
+            <!-- Encomenda s\u00F3 para clientes habituais -->
+            <label id="jbr-wrap-encomenda">Efetuou Nova Encomenda?
+              <select name="nova_encomenda" id="jbr-nova-encomenda">
                 <option value="N\u00E3o">N\u00E3o</option>
                 <option value="Sim">Sim</option>
               </select>
@@ -879,7 +1035,7 @@ const APP_HTML = `<!doctype html>
       </div>
     </section>
 
-    <!-- ABA 3: HIST\u00D3RICO & DASHBOARD (100% FIEL \u00C0 DUDA COM KPIs) -->
+    <!-- ABA 3: HIST\u00D3RICO COM DASHBOARD & KPIs -->
     <section class="jbp-panel" id="jbp-panel-historico">
       <div class="jbh-wrap">
         <div class="jbh-top-bar">
@@ -891,9 +1047,9 @@ const APP_HTML = `<!doctype html>
             </div>
           </div>
           <div class="jbh-acoes">
-            <button type="button" class="jbp-nav-btn" id="jbh-btn-imprimir">\uD83D\uDDA8\uFE0F Imprimir</button>
+            <button type="button" class="jbp-nav-btn" id="jbh-btn-imprimir">\uD83D\uDDA8\uFE0F Imprimir Tabela</button>
             <button type="button" class="jbp-nav-btn jbp-hide" id="jbh-btn-csv">\uD83D\uDCE5 Exportar CSV</button>
-            <button type="button" class="jbp-nav-btn" id="jbh-btn-atualizar">\uD83D\uDD04 Atualizar</button>
+            <button type="button" class="jbp-nav-btn" id="jbh-btn-atualizar">\uD83D\uDD04 Atualizar Dados</button>
           </div>
         </div>
 
@@ -1062,7 +1218,6 @@ const APP_HTML = `<!doctype html>
     </div>
   </div>
 
-  <!-- SCRIPT UNIFICADO: MAPA + REGISTOS + HIST\u00D3RICO COM KPIs -->
   <script>
   (function () {
     var estado = {
@@ -1228,6 +1383,7 @@ const APP_HTML = `<!doctype html>
         sincronizarVisitasNoMapa();
         initMap();
         filtrarClientes();
+        inicializarCockpit();
         inicializarRegistos();
         inicializarHistorico();
 
@@ -1266,7 +1422,105 @@ const APP_HTML = `<!doctype html>
       }
     } catch (e) {}
 
-    // MAPA
+    // ==========================================
+    // 0. COCKPIT INTELIGENTE
+    // ==========================================
+    function inicializarCockpit() {
+      var nome = estado.nome || 'Comercial';
+      document.getElementById('cockpit-ola').textContent = 'Ol\u00E1, ' + nome + '! \uD83D\uDC4B';
+      
+      var atrasoCount = 0;
+      var vencerCount = 0;
+      var diaCount = 0;
+      var urgentes = [];
+
+      clientes.forEach(function (c) {
+        if (c.estadoVisita === 'em-atraso') {
+          atrasoCount++;
+          urgentes.push(c);
+        } else if (c.estadoVisita === 'a-vencer') {
+          vencerCount++;
+          urgentes.push(c);
+        } else if (c.estadoVisita === 'em-dia') {
+          diaCount++;
+        }
+      });
+
+      document.getElementById('cockpit-val-atraso').textContent = atrasoCount;
+      document.getElementById('cockpit-val-vencer').textContent = vencerCount;
+      document.getElementById('cockpit-val-dia').textContent = diaCount;
+
+      // Total de encomendas
+      var totalEnc = 0;
+      var visitasRows = (estado.dados && estado.dados.visitas && estado.dados.visitas.rows) || [];
+      var cols = (estado.dados && estado.dados.visitas && estado.dados.visitas.cols) || [];
+      var iEnc = cols.indexOf('nova_encomenda');
+      visitasRows.forEach(function (r) {
+        var idx = r.length > cols.length ? iEnc + 1 : iEnc;
+        if (idx >= 0 && r[idx] === 'Sim') totalEnc++;
+      });
+      document.getElementById('cockpit-val-encomendas').textContent = totalEnc;
+
+      // Ordenar urgentes por maior n\u00FAmero de dias sem visita
+      urgentes.sort(function (a, b) { return (b.diasSemVisita || 0) - (a.diasSemVisita || 0); });
+
+      // Renderizar Top Lojas Urgentes
+      var contUrg = document.getElementById('cockpit-lista-urgentes');
+      contUrg.innerHTML = '';
+      var topUrgentes = urgentes.slice(0, 6);
+
+      if (!topUrgentes.length) {
+        contUrg.innerHTML = '<p style="font-size:13px;color:var(--muted);padding:10px;">\uD83C\uDF89 Excelente! N\u00E3o h\u00E1 clientes em atraso ou a vencer de momento.</p>';
+      } else {
+        topUrgentes.forEach(function (c) {
+          var card = document.createElement('div');
+          card.className = 'jbm-card cor-' + c.cor;
+          card.style.margin = '0';
+          card.innerHTML = 
+            '<div class="jbm-card-top">' +
+              '<span class="jbm-card-nome">' + c.nome + '</span>' +
+              '<span class="jbm-card-num">#' + c.num + '</span>' +
+            '</div>' +
+            '<div class="jbm-card-morada">\uD83D\uDCCD ' + c.localidade + ' \u00B7 <strong>' + c.diasSemVisita + ' dias sem visita</strong></div>' +
+            '<div class="jbm-card-footer" style="margin-top:6px;">' +
+              '<span class="jbm-tag-status ' + (c.estadoVisita === 'em-atraso' ? 'em-atraso' : 'a-vencer') + '">' +
+                (c.estadoVisita === 'em-atraso' ? '\u26A0\uFE0F Em atraso' : '\u23F3 A vencer') +
+              '</span>' +
+              '<button type="button" class="jbm-sort-btn" style="background:#e0f2fe;color:#0369a1;border-color:#7dd3fc;">Ver Ficha</button>' +
+            '</div>';
+          card.addEventListener('click', function () { abrirFichaCliente(c); });
+          contUrg.appendChild(card);
+        });
+      }
+
+      // Sugest\u00E3o de Rota Inteligente
+      var boxSugestao = document.getElementById('cockpit-box-sugestao');
+      if (topUrgentes.length >= 2) {
+        boxSugestao.classList.remove('jbp-hide');
+        document.getElementById('cockpit-sugestao-titulo').textContent = '\uD83D\uDCA1 Rota Priorit\u00E1ria Recomendada (' + topUrgentes.length + ' Lojas)';
+        document.getElementById('cockpit-sugestao-txt').textContent = 'Agrup\u00E1mos as lojas que mais precisam de contacto: ' + topUrgentes.slice(0, 3).map(function(c){return c.nome;}).join(', ') + '...';
+      }
+
+      document.getElementById('cockpit-btn-aplicar-rota').onclick = function () {
+        rotaClientesSelecionados.clear();
+        topUrgentes.forEach(function (c) { rotaClientesSelecionados.add(c.num); });
+        document.querySelector('.jbp-nav-btn[data-tab="mapa"]').click();
+        document.getElementById('jbm-btn-abrir-rota').click();
+      };
+
+      document.getElementById('cockpit-btn-rota-sugerida').onclick = function () {
+        document.getElementById('cockpit-btn-aplicar-rota').click();
+      };
+
+      document.getElementById('cockpit-btn-visita-proxima').onclick = function () {
+        document.querySelector('.jbp-nav-btn[data-tab="mapa"]').click();
+        btnGps.click();
+      };
+    }
+
+    // ==========================================
+    // 1. MAPA & CRM
+    // ==========================================
     var map, markersLayer, rotaLayer;
     var filtroCorAtivo = 'todas';
     var ordenacaoAtiva = 'urgencia';
@@ -1615,6 +1869,7 @@ const APP_HTML = `<!doctype html>
         avaliarEstadoCliente(clienteModalAtivo);
         atualizarContadores();
         filtrarClientes();
+        inicializarCockpit();
 
         msg.textContent = 'Altera\u00E7\u00F5es guardadas com sucesso!';
         msg.style.color = '#15803d';
@@ -1729,8 +1984,45 @@ const APP_HTML = `<!doctype html>
       atualizarResumoRota();
     });
 
-    // REGISTOS
+    // ==========================================
+    // 2. REGISTOS (FIDELIDADE TOTAL DUDA)
+    // ==========================================
     function inicializarRegistos() {
+      var jaClienteSel = document.getElementById('jbr-ja-cliente');
+      var wrapBusca = document.getElementById('jbr-wrap-busca');
+      var wrapNif = document.getElementById('jbr-wrap-nif');
+      var wrapEncomenda = document.getElementById('jbr-wrap-encomenda');
+      var inpNif = document.getElementById('jbr-nif');
+      var inpLoja = document.getElementById('jbr-loja');
+      var inpBusca = document.getElementById('jbr-busca-cliente');
+      var selMarcaNova = document.getElementById('jbr-marca-nova');
+      var wrapMarcas = document.getElementById('jbr-wrap-marcas');
+
+      // Regra Din\u00E2mica Estrita da Duda:
+      // Se "Sim": mostra pesquisa e n\u00BA de cliente
+      // Se "N\u00E3o": esconde pesquisa, esconde encomenda e n\u00BA de cliente fica livre/vazio
+      function aplicarRegrasCamposVisita() {
+        var ehCliente = jaClienteSel.value === 'Sim';
+        if (ehCliente) {
+          wrapBusca.classList.remove('jbp-hide');
+          wrapNif.classList.remove('jbp-hide');
+          wrapEncomenda.classList.remove('jbp-hide');
+          inpNif.required = true;
+          inpNif.placeholder = 'Preenchido ao pesquisar';
+        } else {
+          wrapBusca.classList.add('jbp-hide');
+          wrapNif.classList.add('jbp-hide');
+          wrapEncomenda.classList.add('jbp-hide');
+          inpNif.required = false;
+          inpNif.value = '';
+          inpBusca.value = '';
+        }
+      }
+
+      jaClienteSel.addEventListener('change', aplicarRegrasCamposVisita);
+      aplicarRegrasCamposVisita();
+
+      // Abas de submiss\u00E3o
       document.querySelectorAll('#jbr-tabs button').forEach(function (btn) {
         btn.addEventListener('click', function () {
           document.querySelectorAll('#jbr-tabs button').forEach(function (b) { b.classList.remove('active'); });
@@ -1742,6 +2034,7 @@ const APP_HTML = `<!doctype html>
         });
       });
 
+      // Bot\u00F5es \u23F1\uFE0F Agora (para preencher com 1 toque)
       document.querySelectorAll('.jb-btn-agora').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var targetId = this.dataset.target;
@@ -1755,6 +2048,7 @@ const APP_HTML = `<!doctype html>
         });
       });
 
+      // Chips das marcas
       var chipsMarcas = document.querySelectorAll('#jbr-wrap-marcas .jb-chip');
       var hiddenQuais = document.getElementById('jbr-quais-marcas');
       chipsMarcas.forEach(function (chip) {
@@ -1770,6 +2064,7 @@ const APP_HTML = `<!doctype html>
         });
       });
 
+      // Datalist de lojas para pesquisa r\u00E1pida
       var dl = document.getElementById('jbr-dl-clientes');
       dl.innerHTML = '';
       clientes.forEach(function (c) {
@@ -1778,7 +2073,7 @@ const APP_HTML = `<!doctype html>
         dl.appendChild(opt);
       });
 
-      document.getElementById('jbr-busca-cliente').addEventListener('input', function () {
+      inpBusca.addEventListener('input', function () {
         var val = this.value.trim();
         var m = /^(\\d+)/.exec(val);
         if (m) {
@@ -1795,6 +2090,7 @@ const APP_HTML = `<!doctype html>
       document.getElementById('jbr-dia').value = hojeIso;
       document.getElementById('jbr-rota-data').value = hojeIso;
 
+      // Submiss\u00E3o de Formul\u00E1rios
       document.querySelectorAll('.jb-form').forEach(function (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
@@ -1831,6 +2127,7 @@ const APP_HTML = `<!doctype html>
                   clientes[i].ultimaVisitaTexto = '\u00DAlt. Visita (' + clientes[i].ultimaVisitaFormatada + ') \u00B7 0 dias sem visitar';
                   atualizarContadores();
                   filtrarClientes();
+                  inicializarCockpit();
                   break;
                 }
               }
@@ -1844,6 +2141,7 @@ const APP_HTML = `<!doctype html>
               ch.classList.remove('checked');
               ch.querySelector('input').checked = false;
             });
+            aplicarRegrasCamposVisita();
           })
           .catch(function () {
             msg.textContent = 'Erro ao enviar. Verifique a liga\u00E7\u00E3o.';
@@ -1859,6 +2157,9 @@ const APP_HTML = `<!doctype html>
 
     function preencherFormularioVisita(c) {
       document.getElementById('jbr-ja-cliente').value = 'Sim';
+      document.getElementById('jbr-wrap-busca').classList.remove('jbp-hide');
+      document.getElementById('jbr-wrap-nif').classList.remove('jbp-hide');
+      document.getElementById('jbr-wrap-encomenda').classList.remove('jbp-hide');
       document.getElementById('jbr-nif').value = c.num || '';
       document.getElementById('jbr-loja').value = c.nome || '';
       document.getElementById('jbr-morada').value = c.morada || '';
@@ -1887,7 +2188,9 @@ const APP_HTML = `<!doctype html>
       });
     }
 
-    // HIST\u00D3RICO
+    // ==========================================
+    // 3. HIST\u00D3RICO & DASHBOARD DE KPIs
+    // ==========================================
     var COLS_HIST = {
       rotas: [['comercial','Comercial'],['data','Data'],['inicio','In\u00EDcio'],['paragens','Paragens interm\u00E9dias'],['fim','Fim'],['observacoes','Observa\u00E7\u00F5es'],['ts','Enviado em']],
       visitas: [
@@ -2019,14 +2322,73 @@ const APP_HTML = `<!doctype html>
         }
       });
 
-      document.getElementById('jbh-btn-imprimir').addEventListener('click', function () { window.print(); });
+      // IMPRIMIR FIEL \u00C0 DUDA: Abre janela limpa com formata\u00E7\u00E3o de tabela para impress\u00E3o sem sumir com a p\u00E1gina!
+      document.getElementById('jbh-btn-imprimir').addEventListener('click', function () {
+        var filtrados = obterRegistosFiltrados();
+        var cols = (COLS_HIST[estado.tipoHist] || []).filter(function (c) { return c[0] !== 'foto_link'; });
 
+        var w = window.open('', '_blank');
+        if (!w) { alert('Por favor, permita pop-ups para imprimir.'); return; }
+        var d = w.document;
+        d.write('<!DOCTYPE html><html><head><title>Relat\u00F3rio - ' + estado.tipoHist.toUpperCase() + '</title>');
+        d.write('<style>body{font-family:sans-serif;padding:20px;color:#1e293b}h2{color:#1a3d6d}table{width:100%;border-collapse:collapse;font-size:12px;margin-top:14px;}th,td{border:1px solid #cbd5e1;padding:6px 8px;text-align:left}th{background:#f1f5f9;font-weight:600}</style>');
+        d.write('</head><body>');
+        d.write('<h2>Relat\u00F3rio de ' + estado.tipoHist.toUpperCase() + ' \u00B7 JB Com\u00E9rcio Global</h2>');
+        d.write('<p style="font-size:12px;color:#64748b;">Gerado em: ' + new Date().toLocaleString('pt-PT') + ' | Perfil: ' + estado.nome + '</p>');
+        
+        var t = document.createElement('table');
+        var thead = document.createElement('thead');
+        var trh = document.createElement('tr');
+        cols.forEach(function (c) {
+          var th = document.createElement('th');
+          th.textContent = c[1];
+          trh.appendChild(th);
+        });
+        thead.appendChild(trh);
+        t.appendChild(thead);
+
+        var tbody = document.createElement('tbody');
+        filtrados.forEach(function (item) {
+          var tr = document.createElement('tr');
+          cols.forEach(function (c) {
+            var td = document.createElement('td');
+            td.textContent = item[c[0]] || '\u2014';
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        t.appendChild(tbody);
+        d.body.appendChild(t);
+        d.close();
+        setTimeout(function () { w.focus(); w.print(); }, 400);
+      });
+
+      // ATUALIZAR DADOS: Faz fetch de novo ao backend e atualiza a interface sem apagar nada!
       document.getElementById('jbh-btn-atualizar').addEventListener('click', function () {
         var btn = this;
         btn.disabled = true;
         btn.textContent = 'A sincronizar...';
-        tentarLogin(estado.codigo, true);
-        setTimeout(function () { btn.disabled = false; btn.textContent = '\uD83D\uDD04 Atualizar'; }, 1500);
+
+        fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ codigo: estado.codigo })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.ok && res.dados) {
+            estado.dados = res.dados;
+            sincronizarVisitasNoMapa();
+            filtrarClientes();
+            inicializarCockpit();
+            renderizarHistorico();
+          }
+        })
+        .catch(function (e) { alert('Erro ao atualizar dados: ' + e.message); })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = '\uD83D\uDD04 Atualizar Dados';
+        });
       });
 
       document.addEventListener('click', function () {
@@ -2036,7 +2398,7 @@ const APP_HTML = `<!doctype html>
       renderizarHistorico();
     }
 
-    function renderizarHistorico() {
+    function obterRegistosFiltrados() {
       var itensMap = prepararItensHistorico();
       var lista = itensMap[estado.tipoHist] || [];
 
@@ -2045,7 +2407,7 @@ const APP_HTML = `<!doctype html>
       var ate = document.getElementById('jbh-ate').value;
       var comSel = document.getElementById('jbh-sel-com') ? document.getElementById('jbh-sel-com').value : '';
 
-      var filtrados = lista.filter(function (o) {
+      return lista.filter(function (o) {
         var com = o.comercial || '';
         if (estado.perfil !== 'admin' && com !== estado.nome) return false;
         if (comSel && com !== comSel) return false;
@@ -2071,7 +2433,10 @@ const APP_HTML = `<!doctype html>
 
         return true;
       });
+    }
 
+    function renderizarHistorico() {
+      var filtrados = obterRegistosFiltrados();
       renderizarKpis(filtrados);
       renderizarTabelaHistorico(filtrados);
     }
@@ -2238,7 +2603,7 @@ export default {
     }
 
     if (path === "/api/health") {
-      return ok({ ok: true, service: "jb-comercial-app", build: "20261113-1638" });
+      return ok({ ok: true, service: "jb-comercial-app", build: "20261113-1711" });
     }
 
     if (path === "/api/login" && req.method === "POST") {
