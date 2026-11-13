@@ -16,7 +16,7 @@ O repositório está preparado para Cloudflare Pages sem processo de build:
 
 - Framework preset: `None`
 - Build command: deixar vazio
-- Build output directory: `/`
+- Build output directory: `public`
 
 ## Próximas fases
 
