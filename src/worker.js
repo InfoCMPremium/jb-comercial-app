@@ -51,7 +51,12 @@ export default {
       });
     }
 
-    return env.ASSETS.fetch(request);
+    const asset = await env.ASSETS.fetch(request);
+    if (url.pathname === "/" && asset.headers.get("content-type")?.includes("text/html")) {
+      const html = (await asset.text()).replace("</body>", '<script src="/enhance.js"></script></body>');
+      return new Response(html, { headers: asset.headers });
+    }
+    return asset;
   }
 };
 
