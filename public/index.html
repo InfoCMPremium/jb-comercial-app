@@ -976,87 +976,85 @@
     var PRAZOS = { verde: 30, laranja: 45, amarelo: 60, lilas: null };
 
     // BASE DE CLIENTES
-        height: auto;
-        max-height: none;
-      }
-      .jbm-sidebar {
-        width: 100%;
-        height: 400px;
-      }
-      #jbm-map {
-        height: 420px;
-        min-height: 420px;
-      }
-      .jbm-grid-2 { grid-template-columns: 1fr; }
-      .jbm-btn-near { width: 100%; margin-left: 0; justify-content: center; }
-      .jbm-links { width: 100%; justify-content: space-between; }
-    }
-  </style>
-</head>
-<body>
-
- <div class="jbm-wrap">
-
-  <!-- Topo -->
-  <header class="jbm-top">
-    <div class="jbm-brand">
-      <div class="jbm-logo-badge">JB</div>
-      <div class="jbm-brand-text">
-        <strong>JB COMÉRCIO GLOBAL</strong>
-        <span>Mapa & CRM Comercial · Terreno</span>
-      </div>
-    </div>
-    <div class="jbm-links">
-      <button type="button" class="jbm-link-btn btn-rota" id="jbm-btn-abrir-rota" title="Planear a melhor rota comercial para hoje">
-        🚗 <strong>Planear Rota</strong>
-      </button>
-      <button type="button" class="jbm-sync-btn" id="jbm-btn-sync" title="Sincronizar histórico de visitas reais">
-        🔄 <span id="jbm-sync-txt">Sincronizar Histórico</span>
-      </button>
-      <a href="https://www.jbcomercioglobal.pt/registos-comerciais" class="jbm-link-btn">📝 Novo Registo</a>
-      <a href="https://www.jbcomercioglobal.pt/historico-comercial" class="jbm-link-btn">📊 Histórico</a>
-    </div>
-  </header>
-
-  <!-- Barra de Filtros Rápidos & Pesquisa -->
-  <div class="jbm-bar">
-    <div class="jbm-search">
-      <input type="text" id="jbm-busca" placeholder="Procurar cliente, numero ou localidade...">
-    </div>
-
-    <div class="jbm-filters">
-      <button type="button" class="jbm-btn-filter active" data-cor="todas">
-        Todos (<span id="count-todos">77</span>)
-      </button>
-      <button type="button" class="jbm-btn-filter" data-cor="verde">
-        <span class="jbm-dot dot-verde"></span> Melhores (<span id="count-verde">0</span>)
-      </button>
-      <button type="button" class="jbm-btn-filter" data-cor="laranja">
-        <span class="jbm-dot dot-laranja"></span> Medianos (<span id="count-laranja">0</span>)
-      </button>
-      <button type="button" class="jbm-btn-filter" data-cor="amarelo">
-        <span class="jbm-dot dot-amarelo"></span> Baixas Compras (<span id="count-amarelo">0</span>)
-      </button>
-      <button type="button" class="jbm-btn-filter" data-cor="lilas">
-        <span class="jbm-dot dot-lilas"></span> Potenciais (<span id="count-lilas">0</span>)
-      </button>
-      <button type="button" class="jbm-btn-filter" data-cor="atraso" style="border-color:#fca5a5;color:#b91c1c;">
-        <span class="jbm-dot dot-atraso"></span> ⚠️ Em Atraso (<span id="count-atraso">0</span>)
-      </button>
-    </div>
-
-    <div class="jbm-gps-control">
-      <button type="button" class="jbm-btn-near" id="jbm-btn-gps" title="Ativar localizacao e filtrar clientes mais proximos">
-        📍 Perto de mim
-      </button>
-      <div class="jbm-raio-grupo" id="jbm-raio-grupo">
-        <button type="button" class="jbm-raio-pill" data-raio="5">5km</button>
-        <button type="button" class="jbm-raio-pill ativo" data-raio="10">10km</button>
-        <button type="button" class="jbm-raio-pill" data-raio="20">20km</button>
-        <button type="button" class="jbm-raio-pill" data-raio="35">35km</button>
-        <button type="button" class="jbm-raio-pill" data-raio="50">50km</button>
-      </div>
-    </div>
+var CLIENTES_BASE = [
+      {num:"6918",nome:"100ª Página, Livraria Lda",morada:"Av. Central 118/120, 4710-229",localidade:"Braga",lat:41.551444,lng:-8.421766,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"4042",nome:"Abinepal",morada:"Rua Albano Coelho Lima,467, 4810-356 Guimarães",localidade:"Braga",lat:41.4425,lng:-8.2918,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"17386",nome:"Afiaoconhecimento",morada:"Avenida D. Manuel I, nº 2358, 4585-013 Baltar",localidade:"Porto",lat:41.192088,lng:-8.38801,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20180",nome:"Almeida & Neves",morada:"Alameda S. Damaso, 69/70, 4801-909 Guimarães",localidade:"Braga",lat:41.4442,lng:-8.2901,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"4705",nome:"ALTF4 - Informática, Lda#",morada:"Rua Armindo Costa Azevedo Jr., Loja 65, 4785-099 Trofa",localidade:"Porto",lat:41.3364,lng:-8.5599,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"2846",nome:"Ariosa Papelaria e Livraria",morada:"Rua D.Afonso henriques, 86",localidade:"Porto",lat:41.158539,lng:-8.635536,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"10760",nome:"Armazém Costa",morada:"Rua da Ribeira, nº132, 4770-207 Famalicão",localidade:"Braga",lat:41.4082,lng:-8.5196,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19759",nome:"As Amorinhas",morada:"Rua Beato Miguel de Carvalho nº 46, 4710-356 Braga",localidade:"Braga",lat:41.551344,lng:-8.413779,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20236",nome:"Baby Prendas",morada:"Av Doutor Jaime Barros, n 214, 4595-204 Paços de Ferreira",localidade:"Porto",lat:41.2778,lng:-8.3764,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19873",nome:"Babylandia",morada:"Av. dos Bombeiros Voluntários, 1669, 4585-013 Baltar",localidade:"Porto",lat:41.192088,lng:-8.38801,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19480",nome:"Baby's love",morada:"Av Abade de Priscos, n40, 4730-305 Vila Verde",localidade:"Braga",lat:41.6492,lng:-8.4357,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19403",nome:"Batata Doce",morada:"Rua 31 de Janeiro, nº119, 4600-043 Amarante",localidade:"Porto",lat:41.268661,lng:-8.077307,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"17018",nome:"Bazar Moderno",morada:"Rua Rainha D. Maria II, n.º 84-90, 4800-431 Guimarães",localidade:"Braga",lat:41.442603,lng:-8.293095,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"13815",nome:"Cantinho das Letras Unipessoal, Lda.",morada:"Rua Monsenhor Vieira Castro, 272, 4820-279  Fafe",localidade:"Braga",lat:41.4504,lng:-8.1706,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"15968",nome:"Capitulo7",morada:"Rua Quinta da Igreja, Loja 5, 4760-715 Ribeirão - Famalicão",localidade:"Braga",lat:41.360614,lng:-8.559313,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19482",nome:"Casa da Capela",morada:"Rua de São Francisco, 8, 4650-311 Barcelos",localidade:"Braga",lat:41.5316,lng:-8.6190,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19435",nome:"Casa dos Neves",morada:"Rua Fernandes Tomás, 789, 4000-429 Porto",localidade:"Porto",lat:41.168204,lng:-8.689219,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"7845",nome:"Livraria Gomes",morada:"Rua Dr. Narciso Alves Cunha, 4940-538 Paredes de Coura",localidade:"Viana do Castelo",lat:41.910444,lng:-8.559224,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"10668",nome:"Contipaper - Artigos de Papel. e Escritório, Lda.",morada:"Rua da Cooperativa, 23, 4590-552 Paços de Ferreira",localidade:"Porto",lat:41.2778,lng:-8.3764,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20176",nome:"Conto de Fadas",morada:"Alameda 5 de Outubro, 66, 4900-515 Viana de Castelo",localidade:"Viana do Castelo",lat:41.691417,lng:-8.827272,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19872",nome:"Dois a Dois",morada:"Estrada da Abelheira 1398, 4900-438 Viana do Castelo",localidade:"Viana do Castelo",lat:41.705436,lng:-8.82668,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"943",nome:"Eurodidacta",morada:"Rua da Feira nº262 4700-271",localidade:"Viana do Castelo",lat:41.556151,lng:-8.432447,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19494",nome:"Farm Kids",morada:"Largo S. João de Souto 14/15, 4700-326 Braga",localidade:"Braga",lat:41.549948,lng:-8.425152,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"11146",nome:"Flash Gift",morada:"Rua Conde São Bento, 100, 4785-296 Trofa",localidade:"Porto",lat:41.337426,lng:-8.559319,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"263",nome:"Fontenova - Livraria e Papelaria Unipessoal, Lda.",morada:"Rua Luís de Camões nº142 R/C, 4760-100 Vila Nova Famalicão",localidade:"Braga",lat:41.4082,lng:-8.5196,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19017",nome:"Gadgetpositivity Lda",morada:"Largo Mira Torre nº24, 4620-586 Lousada",localidade:"Porto",lat:41.2774,lng:-8.2833,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"110",nome:"Gandias-Soc. de Representações, Lda.",morada:"Av. Central, 116, 4710-229 Braga",localidade:"Braga",lat:41.551444,lng:-8.421766,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"17554",nome:"Gotu, LDA",morada:"Rua Da Igreja, Nº 200, V.F.S.Pedro, 4750-847 Barcelos",localidade:"Braga",lat:41.5316,lng:-8.6190,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20165",nome:"Grafphit",morada:"Rua grande n 22, 4900-542 Viana do Castelo",localidade:"Viana do Castelo",lat:41.691997,lng:-8.82813,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"7358",nome:"Ideal Lcc - Livraria, Papelaria e Embalagens, Lda",morada:"Rua da Raínha nº34, 4801-909 Guimarães",localidade:"Braga",lat:41.4425,lng:-8.2918,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20178",nome:"Ideias & Mimos, Lda",morada:"Avenida Central, nº33, C.C.Avenida, Loja 29/30, 4710-218 Braga",localidade:"Braga",lat:41.5511,lng:-8.4280,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20177",nome:"Ikoo",morada:"Praça Doutor Luis, 32 4590-529 Paços de Ferreira",localidade:"Porto",lat:41.2778,lng:-8.3764,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20159",nome:"Joval",morada:"Zona Industrial do Socorro, Lt 10, 4820-011 Fafe",localidade:"Braga",lat:41.456212,lng:-8.14006,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20314",nome:"LaPanóplia",morada:"R. Augusto Simões 1453, 4470-137 Maia",localidade:"Porto",lat:41.2335,lng:-8.6217,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"3034",nome:"Linhamagenta",morada:"Rua da Infanta Dona Maria, Nº25, 1º Dto., 4050-350 Porto",localidade:"Porto",lat:41.154492,lng:-8.618064,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"15600",nome:"Little Cloud",morada:"Rua Cidade de N Dola, Nº 77, 4150-207 Porto",localidade:"Porto",lat:41.1579,lng:-8.6291,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"3274",nome:"Livraria A Luísa",morada:"Praca Luís de Camões nº107, 4480-719 Vila do Conde",localidade:"Porto",lat:41.352617,lng:-8.747684,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"6604",nome:"Livraria Papelaria Minerva",morada:"Rua da Junqueira nº15, 4490-519 Póvoa de Varzim",localidade:"Porto",lat:41.379937,lng:-8.76525,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"17442",nome:"Livraria Porto",morada:"R. de Diogo Botelho 1327, 4169-005 Porto",localidade:"Porto",lat:41.1544,lng:-8.6746,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19249",nome:"Livraria Porto Editora",morada:"Praça de D. Filipa de Lencastre, 42 4050-259 Porto",localidade:"Porto",lat:41.147857,lng:-8.61262,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"16611",nome:"Livraria Zé",morada:"Av. Joaquim Leite de Carvalho, Nº 16, 4600-019 Amarante",localidade:"Porto",lat:41.2713,lng:-8.0776,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"4047",nome:"Livraria, Papelaria Sta Teresinha",morada:"Av. 25 de Abril, Edificio Via Sol R/C - L, 4930-595 Valença",localidade:"Viana do Castelo",lat:42.0286,lng:-8.6339,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"9322",nome:"Loja UP",morada:"Praça Gomes Teixeira, s/n, 4099-002 Porto",localidade:"Porto",lat:41.14634,lng:-8.615639,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"4067",nome:"Marques & H Ferreira Lda.",morada:"Av Pedro Guedes edif Riviera 2,356 D, 4560-452 Penafiel",localidade:"Porto",lat:41.2062,lng:-8.2842,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19147",nome:"MeowMeow Babies & kids",morada:"Av. Doutor Arthur Soares, 328, 4700-363 Braga",localidade:"Braga",lat:41.558302,lng:-8.423876,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"13687",nome:"Minlândia Gift Store",morada:"Rua Sobre o Vale, 66 nº 5 4585-522",localidade:"Porto",lat:41.1925,lng:-8.3881,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18944",nome:"MoonGift",morada:"Rua 25 de Abril nº97, 4420-356 Porto",localidade:"Porto",lat:41.139328,lng:-8.540467,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"7492",nome:"Multiklip",morada:"Rua da Gandra, nº5/7, 4705-731 Celeirós",localidade:"Braga",lat:41.51017,lng:-8.452515,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20194",nome:"NU Concept Store",morada:"Rua das doze Casas, 72, 4000-193 Porto",localidade:"Porto",lat:41.1579,lng:-8.6291,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19810",nome:"Olio Mel",morada:"EN 105, 201, 1 andar, sala 1, 4815-135 Lordelo, Guimarães",localidade:"Braga",lat:41.2389,lng:-8.4128,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20166",nome:"Papelar",morada:"Rua Costa Cabral, 61, 4200-221 Porto",localidade:"Porto",lat:41.1579,lng:-8.6291,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18199",nome:"Papelaria 100 letras",morada:"Rua Professor Luís Mendes Araújo, nº 38, 4605-034 Vila Meã",localidade:"Porto",lat:41.24923,lng:-8.193061,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"6877",nome:"Papelaria ABC- Formas d' Escrever",morada:"E. N. 209, edificio Lord, loja 4437, 4580-439 Lordelo",localidade:"Porto",lat:41.240117,lng:-8.412852,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18474",nome:"Papelaria Aguarela",morada:"Rua Engº. Alexandre Aranha, 245, 4590-591 Paços de Ferreira",localidade:"Porto",lat:41.2778,lng:-8.3764,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18568",nome:"Papelaria Arim",morada:"Rua de São Roque da Lameira, Nº 476, 4350-299 Porto",localidade:"Porto",lat:41.1579,lng:-8.6291,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"7482",nome:"Papelaria Bracara",morada:"Praça General Humberto Delgado,47 - Loja 63, 4715-115 São José de Lázaro",localidade:"Braga",lat:41.54268,lng:-8.410259,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"214",nome:"Papelaria Continental",morada:"Rua da Cooperativa, 23, 4590-552 Paços de Ferreira",localidade:"Porto",lat:41.2778,lng:-8.3764,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"13077",nome:"Papelaria da Vila",morada:"Edifício Fonte da Vila - Rua do Corgo, 884, 4910-603 Caminha",localidade:"Viana do Castelo",lat:41.871157,lng:-8.835467,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"4576",nome:"Papelaria Milénio",morada:"Rua de Santiago nº1389, 4835-247 Braga",localidade:"Braga",lat:41.5511,lng:-8.4280,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"17441",nome:"Papelaria Modelo",morada:"Largo dos Lóios, nº 76, 4050-338 Porto",localidade:"Porto",lat:41.145465,lng:-8.612393,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"12512",nome:"Papelaria Quinta do Vinhal",morada:"Rua Amadeu Mesquita, Lote 75 Loja 1, 4760-117 Vila Nova de Famalicão",localidade:"Braga",lat:41.410871,lng:-8.522512,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19838",nome:"Papelaria Ribeirinha",morada:"Rua do Salteiro nº231, 4485-399 Macieira da Maia",localidade:"Porto",lat:41.3355,lng:-8.681326,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20132",nome:"Papelaria Riscos e Rabiscos",morada:"Av. Narciso Ferreira 136, 4765-202",localidade:"Braga",lat:41.390887,lng:-8.396805,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"3000",nome:"Papelaria Rochalves#",morada:"Urbanizacao da Boavista-Fração E nº5, 4950-425 Mazedo-Monção",localidade:"Viana do Castelo",lat:42.0722,lng:-8.4811,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18747",nome:"Papelaria Sousa Ribeiro",morada:"Centro Comercial Norteshopping, Loja 0428, 4460-841 Porto",localidade:"Porto",lat:41.180449,lng:-8.655697,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"186",nome:"Papelarte",morada:"Rua da Telha, 16 4445-219",localidade:"Porto",lat:41.1579,lng:-8.6291,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"6543",nome:"Papelix#",morada:"Rua Central de Casais nº140, 4745-035 Alvarelhos- Trofa",localidade:"Porto",lat:41.3167,lng:-8.5833,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"15983",nome:"PC Convida, Lda",morada:"Alameda de S. Damaso, C.C.S.Francsico, Loja 58, 4810-286  Guimarães",localidade:"Braga",lat:41.441361,lng:-8.293071,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"19495",nome:"Petit boo",morada:"Rua Professor Manuel Baganha 263, 4350-009 Porto",localidade:"Porto",lat:41.163178,lng:-8.585405,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"15280",nome:"Pintassilgo no Mundo dos Pequenotes Unipessoal,Lda",morada:"Praça Marquês de Pombal, Loja 35, 4490-442 Póvoa de Varzim",localidade:"Porto",lat:41.381123,lng:-8.761046,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20243",nome:"Pirolito´s",morada:"Rua Maria Antónia Neto, 140, 4620-523 Lousada",localidade:"Porto",lat:41.2774,lng:-8.2833,cor:"lilas",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"12527",nome:"Puroflow",morada:"Rua Dr. Pinto Mesquita, 39, 4620-661 Lousada",localidade:"Porto",lat:41.2774,lng:-8.2833,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"14493",nome:"Sarrabisco",morada:"Avenida de S.Tomé, Edifício N.ª Sr.ª dos Chãos, 4580-792 Paredes",localidade:"Porto",lat:41.2053,lng:-8.3308,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"20175",nome:"Sementinha",morada:"Av. São João de Deus, nº 17-23, 4910-107 Caminha",localidade:"Viana do Castelo",lat:41.875128,lng:-8.836791,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"13874",nome:"Sisters B",morada:"Avenida Antonio Pinto Lopes, nº 424, 4580-311 Baltar",localidade:"Porto",lat:41.175316,lng:-8.350478,cor:"laranja",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"18318",nome:"Tabacaria Gomes",morada:"Rua de São João 9 e11",localidade:"Viana do Castelo",lat:41.694291,lng:-8.827335,cor:"amarelo",faturacao:0,contacto:"",telefone:"",marcas:""},
+      {num:"5988",nome:"Velhotes Lda.#",morada:"Rua Gil Eanes, 21, 4400-165 Vila Nova de Gaia",localidade:"Porto",lat:41.1239,lng:-8.6118,cor:"verde",faturacao:0,contacto:"",telefone:"",marcas:""}
+    ];
 
     // ==========================================
     // 1. SISTEMA DE AUTENTICAÇÃO
