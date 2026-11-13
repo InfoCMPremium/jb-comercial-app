@@ -1369,7 +1369,7 @@ const APP_HTML = `<!doctype html>
             <span class="jbm-card-num" id="modal-num" style="font-size:16px;font-weight:800;padding:5px 14px;background:#f59e0b;color:#0f172a;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,.15);letter-spacing:.5px;">#0000</span>
             <button type="button" class="jbm-btn-close" id="modal-btn-close">\u00E2\u0153\u2022</button>
           </div>
-          <h2 id="modal-nome" style="margin:4px 0 0;font-size:20px;font-weight:800;color:#ffffff;line-height:1.25;word-break:break-word;">Nome da Loja</h2>
+          <h2 id="modal-nome" style="margin:6px 0 2px;font-size:clamp(22px, 4vw, 30px);font-weight:800;color:#ffffff;line-height:1.2;word-break:break-word;">Nome da Loja</h2>
           <div style="font-size:13px;color:#cbd5e1;display:flex;align-items:center;gap:6px;" id="modal-sub">
             \u00F0\u0178\u201C\u008D Localidade \u00C2\u00B7 Morada
           </div>
@@ -1801,9 +1801,17 @@ const APP_HTML = `<!doctype html>
       var boxSugestao = document.getElementById('cockpit-box-sugestao');
       var adminControls = document.getElementById('cockpit-admin-controls');
       var adminSection = document.getElementById('cockpit-admin-section');
+      var adminResumo = document.getElementById('cockpit-admin-resumo');
+      if (!adminResumo) {
+        adminResumo = document.createElement('div');
+        adminResumo.id = 'cockpit-admin-resumo';
+        adminResumo.className = 'cockpit-grid';
+        adminSection.parentNode.insertBefore(adminResumo, adminSection);
+      }
+      adminResumo.classList.toggle('jbp-hide', !ehAdmin);
 
       if (ehAdmin) {
-        document.getElementById('cockpit-ola').textContent = 'Painel Executivo \u00E2\u20AC\u201D JB Com\u00C3\u00A9rcio Global';
+        document.getElementById('cockpit-ola').textContent = 'Resumo Di\u00E1rio \u2014 Administra\u00E7\u00E3o';
         document.getElementById('cockpit-sub-ola').textContent = 'Acompanhamento geral da atividade comercial, cobertura e alertas cr\u00C3\u00ADticos.';
         comActions.classList.add('jbp-hide');
         boxSugestao.classList.add('jbp-hide');
@@ -1816,9 +1824,14 @@ const APP_HTML = `<!doctype html>
         var valorAtual = selCom.value;
         selCom.innerHTML = '<option value="">Todos os Comerciais</option>';
         var distinctComs = new Set();
-        visitasRows.forEach(function (r) {
-          var nomeC = r[1] || r[0];
-          if (nomeC && nomeC !== 'undefined') distinctComs.add(nomeC);
+        Object.keys(estado.dados || {}).forEach(function (tipo) {
+          var grupo = estado.dados[tipo];
+          var pos = (grupo.cols || []).indexOf('comercial');
+          if (pos < 0) return;
+          (grupo.rows || []).forEach(function (r) {
+            var nomeC = r[pos + (r.length > grupo.cols.length ? 1 : 0)];
+            if (nomeC) distinctComs.add(nomeC);
+          });
         });
         distinctComs.forEach(function (c) {
           var opt = document.createElement('option');
@@ -1833,6 +1846,21 @@ const APP_HTML = `<!doctype html>
           if (hSel) hSel.value = this.value;
           inicializarCockpit();
         };
+
+        adminResumo.replaceChildren();
+        [['visitas', 'Visitas registadas'], ['rotas', 'Rotas registadas'], ['abastecimentos', 'Abastecimentos']].forEach(function (item) {
+          var grupo = estado.dados[item[0]] || { cols: [], rows: [] };
+          var idx = grupo.cols.indexOf('comercial');
+          var total = (grupo.rows || []).filter(function (row) {
+            return !estado.adminComercialFiltro || (idx >= 0 && row[idx + (row.length > grupo.cols.length ? 1 : 0)] === estado.adminComercialFiltro);
+          }).length;
+          var card = document.createElement('div');
+          card.className = 'cockpit-card';
+          var titulo = document.createElement('div'); titulo.className = 'cockpit-card-title'; titulo.textContent = item[1];
+          var valor = document.createElement('div'); valor.className = 'cockpit-card-val'; valor.textContent = String(total);
+          var periodo = document.createElement('div'); periodo.className = 'cockpit-card-sub'; periodo.textContent = 'Histórico carregado' + (estado.adminComercialFiltro ? ' · ' + estado.adminComercialFiltro : ' · Todos os comerciais');
+          card.append(titulo, valor, periodo); adminResumo.appendChild(card);
+        });
 
         // Renderizar feed recente do Admin
         renderizarAdminFeed();
@@ -1864,6 +1892,7 @@ const APP_HTML = `<!doctype html>
         }
       });
 
+      document.querySelector('.cockpit-grid').classList.toggle('jbp-hide', ehAdmin);
       document.getElementById('cockpit-val-atraso').textContent = atrasoCount;
       document.getElementById('cockpit-val-vencer').textContent = vencerCount;
       document.getElementById('cockpit-val-dia').textContent = diaCount;
@@ -2314,9 +2343,9 @@ const APP_HTML = `<!doctype html>
         var dot = c.estadoVisita === 'em-atraso' ? '\u00F0\u0178\u201D\u00B4' : (c.estadoVisita === 'a-vencer' ? '\u00F0\u0178\u0178\u00A0' : (c.cor === 'verde' ? '\u00F0\u0178\u0178\u00A2' : (c.cor === 'laranja' ? '\u00F0\u0178\u0178\u00A0' : (c.cor === 'amarelo' ? '\u00F0\u0178\u0178\u00A1' : '\u00F0\u0178\u0178\u00A3'))));
         
         row.appendChild(chk);
-        row.innerHTML += '<span style="font-size:13px;">' + dot + '</span>' +
+        row.insertAdjacentHTML('beforeend', '<span style="font-size:13px;">' + dot + '</span>' +
           '<span style="font-weight:800;color:#0f2746;">#' + c.num + ' - ' + c.nome + '</span>' +
-          '<span style="color:#64748b;font-size:11.5px;margin-left:auto;">' + c.localidade + ' \u00C2\u00B7 ' + (c.diasSemVisita != null ? c.diasSemVisita + 'd' : 'Novo') + '</span>';
+          '<span style="color:#64748b;font-size:11.5px;margin-left:auto;">' + c.localidade + ' \u00C2\u00B7 ' + (c.diasSemVisita != null ? c.diasSemVisita + 'd' : 'Novo') + '</span>');
 
         cont.appendChild(row);
       });
@@ -2344,7 +2373,10 @@ const APP_HTML = `<!doctype html>
           // Desmarcar clientes deste grupo
           clientes.forEach(function (c) {
             var match = cor ? (c.cor === cor) : (c.estadoVisita === status);
-            if (match) rotaClientesSelecionados.delete(c.num);
+            var noutroGrupo = Array.from(rotaCoresAtivas).some(function (grupo) {
+              return c.cor === grupo || c.estadoVisita === grupo;
+            });
+            if (match && !noutroGrupo) rotaClientesSelecionados.delete(c.num);
           });
         } else {
           rotaCoresAtivas.add(chave);
@@ -2404,8 +2436,10 @@ const APP_HTML = `<!doctype html>
       .then(function (res) {
         if (!res || !res.trips || !res.trips.length) throw new Error('N\u00C3\u00A3o foi poss\u00C3\u00ADvel calcular.');
         var trip = res.trips[0];
-        var ordemWaypoints = res.waypoints.sort(function (a, b) { return a.waypoint_index - b.waypoint_index; });
-        var lojasOrdenadas = ordemWaypoints.map(function (wp) { return sel[wp.location_index]; });
+        var ordemWaypoints = res.waypoints.map(function (wp, idx) { return { waypoint: wp, cliente: sel[idx] }; });
+        if (ordemWaypoints.some(function (item) { return item.waypoint.trips_index !== 0; })) throw new Error('A rota tem pontos sem ligação por estrada.');
+        ordemWaypoints.sort(function (a, b) { return a.waypoint.waypoint_index - b.waypoint.waypoint_index; });
+        var lojasOrdenadas = ordemWaypoints.map(function (item) { return item.cliente; });
 
         rotaLayer.clearLayers();
         var routeLine = L.geoJSON(trip.geometry, {
@@ -2481,17 +2515,7 @@ const APP_HTML = `<!doctype html>
 
       // Regra Din\u00C3\u00A2mica: Comprou Marca Nova Sim vs N\u00C3\u00A3o
       function aplicarRegrasMarcaNova() {
-        var comprou = selMarcaNova.value === 'Sim';
-        if (comprou) {
-          wrapMarcas.classList.remove('jbp-hide');
-        } else {
-          wrapMarcas.classList.add('jbp-hide');
-          document.querySelectorAll('#jbr-wrap-marcas .jb-chip').forEach(function (ch) {
-            ch.classList.remove('checked');
-            ch.querySelector('input').checked = false;
-          });
-          hiddenQuais.value = '';
-        }
+        wrapMarcas.classList.remove('jbp-hide');
       }
 
       jaClienteSel.addEventListener('change', aplicarRegrasCamposVisita);
@@ -3048,3 +3072,4 @@ export default {
     });
   }
 };
+
