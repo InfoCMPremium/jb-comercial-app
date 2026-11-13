@@ -2286,6 +2286,7 @@ export default {
       } catch(e) { return err({ ok: false, erro: e.message }, 500); }
     }
 
+    if (env && env.ASSETS) return env.ASSETS.fetch(req);
     return new Response(APP_HTML, {
       headers: {
         "Content-Type": "text/html; charset=utf-8",
